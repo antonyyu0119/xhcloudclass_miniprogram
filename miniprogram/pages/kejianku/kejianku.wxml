@@ -1,0 +1,17 @@
+<view class="nav">
+    <view class="nav_left">
+      <ul><li class="{{currentTab==1 ? 'on' : ''}}" bindtap="on" data-current="1">我收到的</li><li class="{{currentTab==2 ? 'on' : ''}}" bindtap="on" data-current="2">我发送的</li></ul>
+    </view>
+    <view class="nav_right">
+      <van-icon name="search" size="25px" />
+    </view>
+</view>
+
+<view class="content">
+    <scroll-view class="{{currentTab==1 ? 'bolck' : 'none'}}">
+    <view id="hint">还没有收到过课件哦~</view>
+    </scroll-view>
+    <scroll-view class="{{currentTab==2 ? 'block' : 'none'}}">
+    <view id="hint">还没有发送过课件哦~</view>
+    </scroll-view>
+</view>

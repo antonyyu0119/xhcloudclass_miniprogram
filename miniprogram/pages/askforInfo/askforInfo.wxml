@@ -1,0 +1,54 @@
+<!--pages/askforInfo/askforInfo.wxml-->
+<view id="askfor">
+
+<view class="hasRead {{askforInfo.hasRead == '已读' ?'' :''}}">{{askforInfo.hasRead}}</view>
+<text class="title">请假条</text>
+
+<view class="content">
+<text class="para">尊敬的 <text class="write"> {{askforInfo.instructor}} </text> 辅导员/老师：</text>
+<text class="para">您好！我是<text class="write"> {{askforInfo.department}} </text>的学生<text class="write"> {{askforInfo.sname}} </text>(学号：<text class="write"> {{askforInfo.sno}} </text>)，因为<text class="reason"><text class="write"> {{askforInfo.reason}} </text></text>需要请假<text class="write"> 自{{askforInfo.time}}。</text>
+</text>
+<text class="para">本人保证往返途中个人人身安全和财产安全，在不耽误学习课程和任何集体活动的前提下，恳请您批准，谢谢！</text>
+
+<view class="footer">
+<view>辅导员/老师意见：</view>
+<view>学生姓名：<text class="write">{{askforInfo.sname}}</text></view>
+<view>日期：<text class="write">{{askforInfo.date}}</text></view>
+</view>
+</view>
+
+</view>
+
+
+<view class="stamp approve {{approve ?'on' :''}}">批 准</view>
+<view class="stamp disapprove {{disapprove ?'on' :''}}">驳 回</view>
+<view id="choice" wx:if="{{identity=='instructor'}}">
+<view><button id="approve" bindtap="approve" disabled="{{disabled}}">批准</button></view>
+<view><button id="disapprove" bindtap="disapprove" disabled="{{disabled}}">不批准</button></view>
+</view>
+
+<van-popup show="{{ show }}" bind:close="onClose" position="bottom" id="popup">
+  <view class="container">
+  <view class="nav">{{disabled ?'驳回理由' :'选择理由'}}</view>
+  <van-radio-group value="{{ radio }}" bind:change="{{disabled ?'' :'onChange'}}" class="choice">
+    <van-radio name="态度不端正" checked-color="#ffba00">态度不端正</van-radio>
+    <van-radio name="理由不充分" checked-color="#ffba00">理由不充分</van-radio>
+    <van-radio name="请假时间过长" checked-color="#ffba00">请假时间过长</van-radio>
+    <van-radio name="其他" checked-color="#ffba00">其他(下方输入框)</van-radio>
+  </van-radio-group>
+  <view class="textarea_container" wx:if="{{display}}">
+  <textarea class="textarea" value="{{argument}}" placeholder="请输入理由" placeholder-style="color:#999;" cursor-spacing="40px;" maxlength="100" bindinput="onGet"></textarea>
+</view>
+  <view class="button" wx:if="{{!disabled}}">
+  <view><button bindtap="onClose">取消</button></view>
+  <view><button bindtap="submit">提交</button></view>
+  </view>
+  </view>
+</van-popup>
+
+<view id="footer" wx:if="{{disapprove}}" bindtap="showArgu">
+<image src="../../images/xiangshangla.png" ></image>
+<view style=" font-size: 25rpx; color: red;" >查看驳回理由</view>
+</view>
+
+

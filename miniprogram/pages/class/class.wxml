@@ -1,0 +1,39 @@
+<progress wx:if="{{loading}}" percent="{{percent}}" duration="{{duration}}" stroke-width="2" active-mode="forwards" active/>
+<view wx:if="{{viewShow}}">  
+  <view class="nav">
+    <view class="hint"><text style=" float: left; text-align: left;">长按任意空白处创建或加入班级</text><text style="text-align: right; float: right;">点击卡片进入课堂</text></view>
+    <ul class="week {{isFixed ?'fixed' :''}}">
+      <li style="width:40rpx;font-size:20rpx;">日期</li>
+      <li data-week="1" class="{{isToday==1 ?'on' :''}}">周一</li>
+      <li data-week="2" class="{{isToday==2 ?'on' :''}}">周二</li>
+      <li data-week="3" class="{{isToday==3 ?'on' :''}}">周三</li>
+      <li data-week="4" class="{{isToday==4 ?'on' :''}}">周四</li>
+      <li data-week="5" class="{{isToday==5 ?'on' :''}}">周五</li>
+      <li data-week="6" class="{{isToday==6 ?'on' :''}}">周六</li>
+      <li data-week="0" class="{{isToday==0 ?'on' :''}}">周日</li>
+    </ul>   
+  </view>
+
+<scroll-view  class="scroll">
+  <view style="height:1300rpx;width:740rpx;display:flex;" catchlongpress="addClass">
+    <view style="background-color:#faf1d8;color:#ffba00;">
+      <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12,13]}}" wx:key="index" class="left">
+        {{item}}
+      </view>
+    </view>
+    <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12,13]}}" wx:key="index">
+      <view style="width: 750rpx; margin-top: {{(index+1)*100-1}}rpx; position: absolute;border-bottom: 1rpx solid {{index == 3 || index == 5 || index == 9 ?'red' :'lightgray'}};">
+      </view>
+    </view>
+
+
+    <view wx:for="{{classList}}" wx:key="index">
+      <view class="flex-item kcb-item" bindtap="showClassView" catchlongpress="deleteClass" data-statu="open" data-index="{{index}}" data-_id="{{item._id}}"  data-classinfo="{{item.classInfo}}" style="margin-left: {{(item.classWeek-1)*100+2.55}}rpx; margin-top: {{(item.classOrder-1)*100+4}}rpx; height: {{item.classNum*100-9}}rpx; background-color: {{colorArrays[index%9]}}">
+        <view class="smalltext" >{{item.lessonName}} {{item.className}}@{{item.classroom}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+</view>
+

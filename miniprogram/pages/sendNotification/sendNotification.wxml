@@ -1,0 +1,25 @@
+<!--pages/sendNotification/sendNotification.wxml-->
+<progress wx:if="{{loading}}" percent="{{percent}}" duration="10" stroke-width="2" active-mode="forwards" active />
+
+<view wx:if="{{viewShow}}" style="width: 100%; height: 100%;">
+  <view wx:if="{{notificationList.length == 0}}" id="hint">这里空荡荡，赶紧发个通知吧！</view>
+  <!-- <scroll-view style="width: 100%; height: 92%; overflow: hidden;" scroll-y="{{true}}"> -->
+
+    <van-swipe-cell id="swipe-cell" right-width="{{ 65 }}" wx:if="{{notificationList.length > 0}}"
+      wx:for="{{notificationList}}" wx:key="{{index}}" async-close bind:close="onClose">
+      <!--<view slot="left">选择</view>-->
+      <van-cell title="通知: {{item.date == today ?'今天' :(item.date == yesterday ?'昨天' :item.date)}}"
+        label="{{item.text}}" value="{{item.time}} 已发送" size="large" bindtap="notice"
+        data-_id="{{item._id}}" />
+      <view slot="right" class="delete">删除</view>
+    </van-swipe-cell>
+    <!--<view wx:if="{{notificationList.length > 0}}" wx:for="{{notificationList}}" wx:key="{{index}}" id="messageList" class="{{item.clear == 'cleared' ?'clear' :''}} {{item.clear == 'slide' ?'slide' :''}} {{item.clear == 'rotate' ?'rotate' :''}}" bindtap="readInfo" data-type="{{item.type}}" data-id="{{item.id}}" data-_id="{{item._id}}">
+</view>-->
+  <!-- </scroll-view> -->
+
+
+  <view class="footer" bindtap="newNotification">
+    <image class="l" src="../../images/jiahao.png"></image>
+    <text class="l">新通知</text>
+  </view>
+</view>

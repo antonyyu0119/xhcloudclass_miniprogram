@@ -1,0 +1,8 @@
+/* pages/activity/activity.wxss */
+page{ background: #ffba00;}
+text{ display: block;}
+
+.notice{ z-index: 100;}
+.students{ margin-top: 30rpx; padding-bottom: 50rpx; width: 100%; overflow: hidden;}
+
+

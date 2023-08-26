@@ -1,0 +1,36 @@
+<van-tabs animated="true" color="#ffba00" active="{{ active }}" sticky="true" class="nav">
+  <van-tab title="通知" title-style="font-size: 33rpx" info="{{notifications > 0 ?notifications :''}}">
+  <view class="clearAll">
+  <view style="float: left;">下拉刷新<image src="../../images/xiajiantou.png"></image></view>
+  <view style="float: right;" bindtap="clearAllNotifications">清除所有<image src="../../images/lajitong.png" ></image></view>
+  </view>
+
+  <!--view class="container {{slide ?'slide' :''}}"-->
+  <view wx:if="{{notificationList.length == 0}}" id="hint">什么？这里竟然没有通知！</view>
+  <view wx:if="{{notificationList.length > 0}}" wx:for="{{notificationList}}" wx:key="index" id="messageList" class="{{item.flag == 1 ?'newItem' :''}} {{item.clear == 'cleared' ?'clear' :''}} {{item.clear == 'slide' ?'slide' :''}} {{item.clear == 'rotate' ?'rotate' :''}}" bindtap="readInfo" data-type="{{item.type}}" data-id="{{item.id}}" data-_id="{{item._id}}">
+  <view class="sender">{{item.sender}}</view>
+  <view class="clear rotate" catchtap="clearMessage" data-_id="{{item._id}}" data-index="{{index}}" data-state="notification"><view class="text" catchtap="deleteMessage" data-_id="{{item._id}}" data-index="{{index}}" data-state="notification">清除</view><image src="../../images/guanbi.png"></image></view>
+  <view class="time">{{item.date == today ?'今天' :(item.date == yesterday ?'昨天' :item.date)}} {{item.sendTime}}</view>
+
+  <text class="content" wx:if="{{item.type == 'askforInfo'}}">你的假条已被{{item.state}}！</text>
+  <text class="content" wx:if="{{item.type == 'checkin'}}">老师发起签到了，快来签到吧！</text>
+  <text class="content" wx:if="{{item.type == 'notice'}}">你收到了一条教师通知！</text>
+
+  </view>
+  <!--/view-->
+
+  </van-tab>
+  <van-tab title="私信" title-style="font-size: 33rpx" info="{{chats > 0 ?chats :''}}"><view class="clearAll">
+  <view style="float: left;">下拉刷新<image src="../../images/xiajiantou.png"></image></view>
+  <view style="float: right;">清除所有<image src="../../images/lajitong.png" bindtap="clearAllChats"></image></view>
+  </view>
+  <view wx:if="{{chatList.length == 0}}" id="hint">好蓝瘦！没有人和我聊天</view>
+  <view wx:for="{{chatList}}" wx:key="index" id="messageList" data-groupid="{{item.groupId}}" data-target="{{item._openid}}" data-name="{{item.nickName}}" data-_id="{{item._id}}" bindtap="goChat" class="{{item.flag == 1 ?'newItem' :''}} {{item.clear == 'cleared' ?'zoom' :''}} {{item.clear == 'slide' ?'slide' :''}} {{item.clear == 'rotate' ?'rotate' :''}}">
+    <view class="sender">{{item.nickName}}</view>
+    <view class="clear rotate" catchtap="clearMessage" data-_id="{{item._id}}" data-index="{{index}}" data-state="chat"><view class="text" catchtap="deleteMessage" data-_id="{{item._id}}" data-index="{{index}}" data-state="chat">清除</view><image src="../../images/guanbi.png"></image></view>
+    <view class="time">{{item.date == today ?'今天' :(item.date == yesterday ?'昨天' :item.date)}} {{item.sendTime}}</view>
+    <view class="content">{{item.msgType == 'image' ?'[图片消息]' :item.textContent}}</view>
+  </view>
+  
+  </van-tab>
+</van-tabs>

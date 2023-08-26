@@ -1,0 +1,19 @@
+<!--pages/classView_t/classView_t.wxml-->
+<view style="width: 100%; height 600rpx;" class="classInfo">
+<view class="lessonName"><text class="name">课    程：</text><text class="content" selectable="true">{{classDetail.lessonName}}</text></view>
+<view class="tname"><text class="name">教    师：</text><text class="content" selectable="true">{{classDetail.tname}}</text></view>
+<view class="classroom"><text class="name">教    室：</text><text class="content" selectable="true">{{classDetail.classroom}}</text></view>
+<view class="className"><text class="name">班    级：</text><text class="content" selectable="true">{{classDetail.className}}</text></view>
+<view class="classId"><text style="color: #999;">班级 ID   ：</text><text class="content" selectable="true">{{classDetail.classId}}</text><view class="icon" bindtap="copy"><image src="../../images/fuzhi.png"></image></view></view>
+<view class="classOrder"><text class="name">节    次：</text><text class="content" selectable="true">{{classDetail.classWeek}}，{{classDetail.classOrder}}-{{classDetail.classOrder+classDetail.classNum-1}}节</text></view>
+<view class="studentNum" bindtap="studentInfo"><text class="name">人    数：</text><text class="content" >{{studentNum}}</text><view bindtap="studentInfo" class="icon"><image src="../../images/youjiantou.png"></image></view></view>
+</view>
+<view class="classify">
+<view bindtap="activity"><image src="../../images/ketanghuodong.png"></image><text style=" color: #53ba9e;">课堂活动</text></view>
+<view bindtap="sendNotification"><image src="../../images/fasongtongzhi.png"></image><text style="color: #5b7dfe;">发送通知</text></view>
+<view bindtap="onChat"><image src="../../images/faqisixin.png"></image><text style="color: #6bbf69;">发起私信</text></view>
+</view>
+
+
+<view class="footer"><button bindtap="deleteClass" class="delete"><view><text>删除班级</text><image src="../../images/tuichu.png"></image></view></button>
+</view>

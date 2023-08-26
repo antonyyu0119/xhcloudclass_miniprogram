@@ -1,0 +1,44 @@
+/* pages/instructor/instructor.wxss */
+page{ width: 100%; height: 100%; overflow: scroll; position: relative;}
+
+@keyframes rotate{
+  0% { transform: rotate(0deg);}
+  50% { transform: rotate(180deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.scrollList{ width: 80%; height: 92%; position: absolute; right: 0; top: 40px; box-sizing: border-box; padding-bottom: 80rpx;}
+.top{ width: 100%; height: 50rpx; padding: 0 20rpx; box-sizing: border-box;}
+.top>view{ width: 15%; height: 100%; line-height: 75rpx; color: #666; position: relative; font-size: 25rpx;}
+.top image{ width: 25rpx; height: 25rpx; position: absolute; right: 0; top: 25rpx;}
+.top image.on{ animation: rotate 1s linear infinite;}
+
+.list{ padding: 0 15rpx;}
+.list:active{ background: #eee;}
+.list::before{ width: 300rpx; height: 100rpx; position: absolute; z-index: 1; line-height: 100rpx; text-align: center; font-size: 80rpx; font-family: SimSun; font-weight: bold; border-radius: 15rpx; bottom: -20rpx; right: -80rpx; opacity: 0.75; text-transform: uppercase; transform-origin: 50% 50%; transform: rotate(-15deg) scale(.4); }
+.list.approve::before{ content: '批 准'; color: #d00; border: 8rpx solid #d00;}
+.list.disapprove::before{ content: '驳 回'; color: #000;}
+
+.list::after{ position: absolute; left: -35rpx; top: 5rpx; opacity: .5; width: 120rpx; height: 30rpx; background: #ffba00; font-size: 25rpx; line-height: 30rpx; text-align: center; transform: rotate(-30deg);}
+.list.yes::after{ content: ""; background: none;}
+.list.no::after{ color:red; content: "未读";}
+
+
+
+.container{ position: absolute; width: 100%; height: 100%;}
+.container view{ width: 100%;}
+.my-info{height: 150rpx; background: #ffba00;}
+.my-info .userNickName{ height: 150rpx; line-height: 150rpx; float: right; padding-right: 40rpx; font-size: 40rpx; color: white;}
+.my-info .userAvatarUrl{ width: 100rpx; height: 100rpx; float: left; display: block; margin-top: 25rpx; margin-left: 35rpx; border: 5rpx solid white; border-radius: 50%; background-color: white; overflow: hidden;}
+.my-info .id{ float: right; width: 40rpx; height: 40rpx; margin: 60rpx 40rpx 0 0;}
+.line{ height: 100rpx; background: #f6f6f6; width: 100%;}
+van-cell{ width: 100%;}
+.line text{ height: 100rpx; line-height: 130rpx; font-size: 30rpx; padding-left: 35rpx;}
+.title { height: 40rpx; overflow: hidden; margin-top: 3rpx;}
+.title text{ height: 40rpx; line-height: 41rpx; float: left; font-size: 33rpx}
+.title image{ width: 40rpx; height: 40rpx; float: left;margin-right: 30rpx;}
+.contact button{ width: 100%; height: 90rpx; padding-top:12px;background: #fff; font-size: 33rpx;}
+.contact button image{ width: 40rpx; height: 40rpx; float: left;margin-right: 30rpx; margin-left: 5rpx;}
+.contact button text{ display: block; line-height: 45rpx; text-align: left;}
+
+van-tabbar>view{ box-shadow: 0 -2rpx 10rpx 5rpx #eee; background: #efefef;}

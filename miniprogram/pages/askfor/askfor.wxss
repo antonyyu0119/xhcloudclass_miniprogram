@@ -1,0 +1,32 @@
+/* pages/askfor/askfor.wxss */
+page{ margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;}
+.nav{ position: sticky; top: 0;}
+.list_container{ height: 92%; width: 100%; overflow: hidden; position: sticky; top: 0;}
+.list{ width: 95%; height: 200rpx; position: relative; padding: 0 15rpx; margin: 0 auto 30rpx; background: rgba(255, 186, 0, .7); border-radius: 20rpx; box-shadow: 0 10rpx 5rpx #ccc; box-sizing: border-box; overflow: hidden; color: #fff;}
+.list::before{ width: 300rpx; height: 100rpx; position: absolute; z-index: 1; line-height: 100rpx; text-align: center; font-size: 80rpx; font-family: SimSun; font-weight: bold; border-radius: 15rpx; bottom: 0; right: -50rpx; opacity: 0.75; text-transform: uppercase; transform-origin: 50% 50%; transform: rotate(-15deg) scale(.5); }
+.list.approve::before{ content: '批 准'; color: #d00; border: 8rpx solid #d00;}
+.list.disapprove::before{ content: '驳 回'; color: #000;}
+.list .hasRead{ color: #ff3300; font-size: 25rpx; width: 33.33%; height: 30rpx; float: left; text-align: left; position: relative;}
+.list .hasRead::after{position: absolute; content: ""; width: 0rpx; height: 120rpx; border-right: 2rpx dashed #000; top: -30rpx; left: 45rpx; background: #000; transform: rotate(65deg);}
+.list .sname{ color: #000; font-size: 35rpx; width: 33.33%; height: 50rpx; float: left; text-align: center;}
+.list .date{ width: 33.33%; height: 50rpx; float: left; text-align: center;}
+.list view{ width: 50%; height: 40rpx;}
+.list .time{ width: 100%; clear: both; text-align: center; font-size: 33rpx; margin-top: 10rpx;}
+.list .reason{ display: block; width: 90%; text-align: left; margin: 10rpx auto 0; font-size: 25rpx; color: #6666; height: 30rpx; line-height: 30rpx; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.list .revoke{ width: 100rpx; height: 70rpx; line-height: 70rpx; text-align: right; position: absolute; bottom: 0; right: 15rpx; font-size: 33rpx; color: #000;}
+.footer{ position: fixed; bottom: 0; height: 8%; width: 100%;}
+.addAskfor{ width: 100%; height: 100%; position: relative; bottom: 0; background: #f7e8c2;}
+.addAskfor view{ height: 70rpx; line-height: 70rpx; width: 140rpx; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); border-radius: 10rpx;background: #ffba00; text-align: center;}
+.addAskfor van-icon{ display: block; color: #fff;}
+.container{ width: 600rpx; height: 1000rpx; border: 8rpx solid #333; position: relative; box-sizing: border-box; overflow: hidden;}
+.content_nav{ width: 95%; height: 70rpx; position: fixed; top: 8rpx; background: #ffba00; border-radius: 0 0 50% 50%; text-align: center; line-height: 70rpx; font-size: 35rpx; color: #fff;}
+.content{ width: 600rpx; height: 450px; position: absolute; top: 70rpx; padding: 20rpx;  padding-top: 0; box-sizing: border-box; overflow: hidden;}
+.label { height: 60rpx; overflow: hidden;}
+.label text{ height: 60rpx; line-height: 60rpx; float: left; font-size: 33rpx; color: #999999; padding-left: 5rpx;}
+.line{ height: 100rpx; background: #fff;}
+.line text{ height: 60rpx; line-height: 130rpx; font-size: 30rpx; padding-left: 35rpx;}
+.textarea_container{ width: 90%; height: 350rpx; margin: 0 auto; box-sizing: border-box; border: 2rpx solid #ffba00; overflow: hidden;}
+.textarea{ display: block; width: 100%; height: 350rpx; padding-left: 7rpx; position: relative; top:0; left: 0;}
+.button{ height: 70rpx; width: 100rpx; position: fixed; bottom: 20rpx;  z-index: 10; background: #ffba00; text-align: center; line-height: 70rpx; font-size: 35rpx; color: #fff;}
+.cancel{left: 8rpx; border-radius: 0 20rpx 20rpx 0;}
+.submit{right: 8rpx; border-radius: 20rpx 0 0 20rpx;}

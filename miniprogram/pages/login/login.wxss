@@ -1,0 +1,4 @@
+/* pages/login/login.wxss */
+.line{ height: 150rpx; line-height: 200rpx; font-size: 40rpx; padding-left: 30rpx; background: #f6f6f6;}
+van-button{ position: absolute; bottom: 150rpx;left: 50%;transform: translate(-50%, -50%);}
+.signup{ height: 40rpx; width: 350rpx; text-align: center; text-decoration: underline; line-height: 40rpx; font-size: 30rpx; position: absolute; bottom: 100rpx; left: 50%; transform: translate(-50%, -50%);}

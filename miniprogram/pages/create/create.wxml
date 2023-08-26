@@ -1,0 +1,50 @@
+
+<van-cell-group>
+  <view class="line">课程</view>
+  <van-field
+    value="{{ lessonName }}"
+    placeholder="请输入课程名称"
+    border="{{ false }}"
+    bind:change="onChange_lessonName"
+  />
+  <view class="line">班级</view>
+  <van-field
+    value="{{ className }}"
+    placeholder="请输入班级名称"
+    border="{{ false }}"
+    bind:change="onChange_className"
+  />
+  <view class="line">教室</view>
+  <van-field
+    value="{{ classroom }}"
+    placeholder="请输入详细信息"
+    border="{{ false }}"
+    bind:change="onChange_classroom"
+  />
+  <view class="line">时间</view>
+  <view bindtap="chooseTime">
+    <van-field
+    value="{{ classTime }}"
+    placeholder="请选择"
+    readonly
+    border="{{ false }}"
+    bind:input="onChange_classTime"
+  >
+    </van-field>
+  </view>
+    <van-popup
+  show="{{ show_time }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+>
+  <van-picker
+  show-toolbar
+  title="时间"
+  columns="{{ columns_time }}"
+  bind:cancel="onClose"
+  bind:confirm="onConfirm_time"
+  />
+</van-popup>
+</van-cell-group>
+<van-button round disabled="{{isDisabled}}" type="this" bind:click="onClick" bindtap="onAlert"><text>创建</text></van-button>

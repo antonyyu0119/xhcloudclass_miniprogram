@@ -1,0 +1,30 @@
+<!--pages/presentInfo/presentInfo.wxml-->
+<progress wx:if="{{loading}}" percent="{{percent}}" duration="{{duration}}" stroke-width="2" active-mode="forwards" active/>
+
+<view wx:if="{{viewShow}}">
+
+<view id="class_nav">
+<view class="l" style="width: 50%;">{{lessonName}} {{className}}</view>
+<view class="r" style="text-align: right;">{{date == today ?'今天' :(date == yesterday ?'昨天' :date)}} {{time}}</view>
+</view>
+
+<view class="result">
+<view class="l">签到：{{presentNum >0 ?presentNum :'0'}}人</view>
+<view class="l">未到：{{absentNum >0 ?absentNum :'0'}}人</view>
+<view class="l">请假：{{askforNum >0 ?askforNum :'0'}}人</view>
+</view>
+<view id="signin_nav">
+<view>姓名</view>
+<view>结果</view>
+</view>
+<view id="signin_stuList" wx:for="{{studentList}}" wx:key="{{index}}" data-index="{{index}}" data-openid="{{item.openid}}" data-sname="{{item.sname}}" data-sno="{{item.sno}}" bindtap="{{item.present == '未签到' ?'changePresent' :''}}">
+  <view>
+  <text style="color: #fff; font-size: 30rpx; line-height: 45rpx">{{item.sname}}</text>
+  <text style="line-height: 40rpx">{{item.sno}}</text>
+  </view>
+  <view class="result {{item.present == '已请假' ?'present' :(item.present == '未签到' ?'absent' :'')}}">{{item.present}}{{item.checkinTime}}
+  <view class="image"><image src="../../images/youjiantou.png" ></image></view>
+  </view>
+</view>
+
+</view>

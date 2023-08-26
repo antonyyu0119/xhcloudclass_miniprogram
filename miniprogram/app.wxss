@@ -1,0 +1,223 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+
+button {
+  background: initial;
+}
+
+button:focus{
+  outline: 0;
+}
+
+button::after{
+  border: none;
+}
+
+/* 自定义全局样式 */
+
+.l{ float: left}
+.r{ float: right}
+
+#copyright{ display: block; width: 100%; height: 50rpx; text-align: center; line-height: 50rpx; font-size: 15rpx;}
+
+#progress{ display: block; position: absolute; top: 0; z-index: 10000;}
+
+#hint{ display: block; max-width: 450rpx; height: 80rpx; line-height: 80rpx; text-align: center; font-size: 30rpx; padding: 0 20rpx; box-sizing: border-box; margin: 30rpx auto 0; background: rgba(0,0,0,.1); color: #fff; border-radius: 5rpx; overflow: hidden;}
+
+#class_nav{ width: 100%; height: 100rpx; background: #ffba00; padding: 0 15rpx; box-sizing: border-box; box-shadow: 0 5rpx 0 0rpx #eee;}
+#class_nav view{ width: 33.3%; line-height: 100rpx; color: #fff; font-size: 35rpx; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+
+#signin_button{ width: 95%; height: 300rpx; margin: 20rpx auto; display: flex; border: 5rpx solid #fff; border-radius: 20rpx; color: #fff; overflow: hidden;}
+#signin_button>view{ flex: 1; padding: 0 20rpx; box-sizing: border-box;}
+#signin_button button{ color: #fff; line-height: 300rpx; font-size: 40rpx; background: transparent;}
+#signin_button>view view{ height: 100rpx; line-height: 100rpx; font-size: 35rpx;  text-align: center; box-shadow: 0 5rpx 0 0rpx #fff;}
+
+
+#signin_nav{ height: 80rpx; width: 100%; display: flex; box-shadow: 0 5rpx 15rpx 10rpx #ffba00; background: #f5e9c7; padding: 0 60rpx; box-sizing: border-box; margin: 10rpx 0 20rpx;}
+#signin_nav>view{ flex: 1; color: #333; box-sizing: border-box; font-size: 33rpx; line-height: 80rpx;}
+#signin_stuList{ height: 80rpx; padding: 10rpx 20rpx; font-size: 28rpx; width: 85%; margin: 0 auto; border-bottom: 2rpx solid #f5e9c7; color: #f6f6f6; display: flex; overflow: hidden;}
+#signin_stuList>view{ flex: 1; font-size: 28rpx; overflow: hidden;}
+#signin_stuList>view image{ display: block; width: 40rpx; height: 40rpx; background: #fff; border-radius: 50%;}
+#signin_stuList>view .image{ width: 40rpx; height: 100%; padding: 20rpx 0; box-sizing: border-box; float: right;}
+#signin_stuList .result{ font-size: 25rpx; text-align: left; line-height: 80rpx; overflow: hidden; margin: 0;}
+#signin_stuList .present{ color: #fff; font-weight: bold;}
+#signin_stuList .absent{ color: red; font-weight: bold;}
+
+#banner{ width: 100%; height: 40%; box-sizing: border-box; background: #666;}
+#banner swiper{ width: 100%; height: 100%;}
+
+#studentList{ width: 100%; font-size: 30rpx; background: #fff;}
+#studentList:active{ background: #eee;}
+#studentList .content{ width: 90%; height: 70rpx; margin: 0 auto; padding: 20rpx 0; border-bottom: 1rpx solid #eee; display: flex;}
+#studentList .studentInfo{ flex: 1;}
+#studentList .studentInfo .choose{ display: none; width: 50rpx; height: 50rpx; float: left; margin-top: 10rpx; margin-right: 25rpx;}
+#studentList .studentInfo .userAvatarUrl{ display: block; width: 70rpx; height: 70rpx; border: 1rpx solid #ffba00; box-sizing: border-box; border-radius: 50%; float: left;}
+#studentList .studentInfo .info{ float: left; margin-left: 20rpx;}
+#studentList .studentInfo .info text{ display: block; height: 35rpx; line-height: 35rpx;}
+#studentList .moreInfo{ flex: 1;}
+#studentList .moreInfo image{ display: block; width: 40rpx; height: 40rpx; float: right; margin-top: 15rpx;}
+
+#messageList{ width: 95%; height: 120rpx; position: relative; margin: 30rpx auto 30rpx; border: 5rpx solid #ffba00; border-radius: 25rpx; box-shadow: 0 10rpx 5rpx #ccc; overflow: visible; color: #555; background: #fff; box-sizing: border-box;}
+#messageList:active{ background: #eee;}
+#messageList.clear{ animation: clear .2s ease-in both;}
+#messageList.slide{ transform: translateY(-150rpx); transition: 300ms; transition-delay: 200ms;}
+#messageList.zoom{ animation: zoom .2s ease-in both;}
+#messageList.rotate .clear{ width: 60rpx; transition: 300ms ease-out;}
+#messageList.rotate .clear image{ right: 60rpx; transform: rotate(-172deg); transition: 300ms ease-out;}
+/*.list.clear{ transform: translateX(-110%); transition: all .2s ease-in;}*/
+
+#messageList >view{ height: 40rpx; line-height: 40rpx; color: #777; float: right; font-size: 25rpx; margin-top: 5rpx;}
+#messageList .sender{ float: left; width: 30%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-left: 20rpx; letter-spacing: 2rpx;}
+#messageList .time{ width: 40%; overflow: hidden; text-align: right; margin-right: 50rpx;}
+#messageList .content{ position: absolute; top: 50%; transform: translateY(-30%); height: 50rpx; line-height: 50rpx; width: 100%; padding: 0 25rpx; box-sizing: border-box; text-align: left; clear: both; font-size: 28rpx; letter-spacing: 3rpx; overflow: hidden; white-space: nowrap;text-overflow: ellipsis;}
+#messageList .clear{ overflow: hidden; transition: 200ms; width: 0;}
+#messageList .clear .text{ height: 40rpx; width: 100%; line-height: 40rpx; font-size: 25rpx; text-align: center;transition: 200ms;}
+#messageList .clear image{ position: absolute; right: 5rpx; top: 5rpx; width: 40rpx; height: 40rpx; display: block; border-radius: 50%; background-color: #fff; transition: 200ms;}
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.userinfo, .uploader, .tunnel {
+  margin-top: 40rpx;
+  height: 140rpx;
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: none;
+  border-right: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 300ms ease;
+}
+
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: white;
+}
+
+.userinfo-avatar:after {
+  border: none;
+}
+
+.userinfo-nickname {
+  font-size: 32rpx;
+  color: #007aff;
+  background-color: white;
+  background-size: cover;
+}
+
+.userinfo-nickname::after {
+  border: none;
+}
+
+.uploader, .tunnel {
+  height: auto;
+  padding: 0 0 0 40rpx;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.uploader-text, .tunnel-text {
+  width: 100%;
+  line-height: 52px;
+  font-size: 34rpx;
+  color: #007aff;
+}
+
+.uploader-container {
+  width: 100%;
+  height: 400rpx;
+  padding: 20rpx 20rpx 20rpx 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.uploader-image {
+  width: 100%;
+  height: 360rpx;
+}
+
+.tunnel {
+  padding: 0 0 0 40rpx;
+}
+
+.tunnel-text {
+  position: relative;
+  color: #222;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tunnel-text:first-child {
+  border-top: none;
+}
+
+.tunnel-switch {
+  position: absolute;
+  right: 20rpx;
+  top: -2rpx;
+}
+
+.disable {
+  color: #888;
+}
+
+.service {
+  position: fixed;
+  right: 40rpx;
+  bottom: 40rpx;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: linear-gradient(#007aff, #0063ce);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  transition: all 300ms ease;
+}
+
+.service-button {
+  position: absolute;
+  top: 40rpx;
+}
+
+.service:active {
+  box-shadow: none;
+}
+
+.request-text {
+  padding: 20rpx 0;
+  font-size: 24rpx;
+  line-height: 36rpx;
+  word-break: break-all;
+}
+
+/* css 隐藏滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

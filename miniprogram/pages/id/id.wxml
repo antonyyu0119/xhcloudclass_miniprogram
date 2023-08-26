@@ -1,0 +1,28 @@
+<!--pages/id/id.wxml-->
+<view wx:if="{{!show}}" id="hint">敬请期待~~~</view>
+<view wx:if="{{show}}">
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="{{platform == 'ios' ? '../regFaceID/regFaceID' : '../regFaceID_cpb/regFaceID_cpb'}}"
+>
+  <view slot="title" class="title">
+    <image src="../../images/renlianzhuce.png"></image>
+    <text>人脸注册</text>
+  </view>
+</van-cell>
+
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../regIDcard/regIDcard"
+>
+  <view slot="title" class="title">
+    <image src="../../images/zhengjianrenzheng.png"></image>
+    <text>身份证认证</text>
+  </view>
+</van-cell>
+</view>
+

@@ -1,0 +1,155 @@
+<!--pages/instructor/instructor.wxml-->
+<progress wx:if="{{loading}}" percent="{{percent}}" duration="10" stroke-width="2" active-mode="forwards" active/>
+
+
+<view wx:if="{{viewShow}}">
+<van-notice-bar  
+  scrollable="true"
+  left-icon="volume-o"
+  text="欢迎各位辅导员加入智慧课堂 。        欢迎各位辅导员加入智慧课堂 。        欢迎各位辅导员加入智慧课堂 。"
+/>
+
+
+<van-sidebar wx:if="{{active == 0}}" active-key="{{ activeKey }}" bind:change="changeSide">
+  <van-sidebar-item title="待批假条" info="{{askNum == 0 ?'' :askNum}}" />
+  <van-sidebar-item title="迟到学生" info="" />
+  <van-sidebar-item title="旷课学生" info=""/>
+  <van-sidebar-item title="教师信息" info="" />
+</van-sidebar>
+<view wx:if="{{active == 0}}" style="width: 20%; height: 100%; background-color: #faf1d8"></view>
+<scroll-view wx:if="{{active == 0}}" class="scrollList" scroll-y="{{true}}">
+
+<view class="top">
+  <view bindtap="refresh" style="float: left;">刷新<image src="../../images/shuaxin.png" class="{{refreshing ?'on' :''}}"></image></view>
+  <!-- <view style="float: right;" bindtap="clearAllAskfor">清空<image src="../../images/lajitong.png" ></image></view> -->
+  </view>
+
+<!-- 第一项 -->
+<view wx:if="{{activeKey == 0}}">
+<view id="hint" wx:if="{{askList.length == 0}}">这里没有请假条哦~</view>
+<view style="overflow: hidden; background: #fff; margin: 20rpx auto 20rpx;" id="messageList" class="list {{item.hasRead == '已读' ?'yes' :'no'}} {{item.isApprove == 'approve' ?'approve' :''}} {{item.isApprove == 'disapprove' ?'disapprove' :''}}"  wx:for="{{askList}}" wx:key="{{index}}" bindtap="askforInfo" data-_id="{{item._id}}" data-hasread="{{item.hasRead}}">
+  <view class="sender">来自{{item.sname}}</view>
+  <view class="time" style="margin-right: 20rpx">{{item.date == today ?'今天' :(item.date == yesterday ?'昨天' :item.date)}}</view>
+  <view class="content">收到学生新的假条了，赶紧审批吧~</view>
+</view>
+<view id="hint" style="width: 300rpx; margin-bottom: 20rpx;" wx:if="{{askList.length > 0}}">我是有底线的~</view>
+</view>
+<!-- 第二项 -->
+<view wx:if="{{activeKey == 1}}">
+<text id="hint" style="width: 400rpx;" wx:if="{{lateList.length == 0}}">太赞了！没有学生迟到~</text>
+</view>
+
+<!-- 第三项 -->
+<view wx:if="{{activeKey == 2}}">
+<view id="hint" style="width: 400rpx;" wx:if="{{absentList.length == 0}}">太赞了！没有学生旷课~</view>
+</view>
+
+<!-- 第四项 -->
+<view wx:if="{{activeKey == 3}}">
+<view id="hint" wx:if="{{teacherList.length == 0}}">教师发送的通知会显示在这里~</view>
+</view>
+</scroll-view>
+
+
+<view class="container" wx:if="{{active == 1}}">
+<view class="my-info">
+  <image class="userAvatarUrl" src="{{userAvatarUrl}}"></image>
+  <text class="userNickName" lang="zh_CN">{{name}}</text> 
+</view>
+<view class="line container-fluid clear"><text>我的</text></view>
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../myinformation/myinformation"
+>
+  <view slot="title" class="title">
+    <image src="../../images/bianji.png"></image>
+    <text>编辑个人信息</text>
+  </view>
+</van-cell>
+
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../shoucang/shoucang"
+>
+  <view slot="title" class="title">
+    <image src="../../images/shoucang.png"></image>
+    <text>我的收藏</text>
+  </view>
+</van-cell>
+
+<view class="line container-fluid clear"><text>认证</text></view>
+
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../id/id"
+>
+  <view slot="title" class="title">
+    <image src="../../images/shenfenrenzheng.png"></image>
+    <text>身份认证</text>
+  </view>
+</van-cell>
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../phone/phone"
+>
+  <view slot="title" class="title">
+    <image src="../../images/bangdingshouji.png"></image>
+    <text>绑定手机</text>
+  </view>
+</van-cell>
+<view class="line container-fluid clear"><text>帮助</text></view>
+
+<view class="contact"> 
+  <button open-type="contact">
+      <image src="../../images/kefu.png"></image>
+      <text>联系客服</text>
+  </button>
+</view>
+
+<view class="line container-fluid clear"><text>其他</text></view>
+
+<van-cell
+  clickable
+  bindtap="clearStorage"
+  size="large"
+  value="{{currentSize}}"
+>
+  <view slot="title" class="title">
+    <image style="width: 38rpx; height: 38rpx;" src="../../images/lajitong.png"></image>
+    <text>清除缓存</text>
+  </view>
+</van-cell>
+
+  <view id="copyright">Copyright © 2020 余津一. All Rights Reserved.</view>
+  <view style="margin-bottom:100rpx"></view>
+
+</view>
+
+
+
+
+<van-tabbar
+  active="{{ active }}"
+  active-color="#ffba00"
+  inactive-color="#000"
+  bind:change="changeTab"
+>
+  <van-tabbar-item icon="home-o">主页</van-tabbar-item>
+  <van-tabbar-item icon="setting-o">设置</van-tabbar-item>
+</van-tabbar>
+
+
+
+
+
+
+</view>
+

@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="nav">
+    <ul class="week">
+      <li style="width:9%;font-size:30rpx;">日期</li>
+      <li data-week="1" class="{{isToday==1 ?'on' :''}}">周一</li>
+      <li data-week="2" class="{{isToday==2 ?'on' :''}}">周二</li>
+      <li data-week="3" class="{{isToday==3 ?'on' :''}}">周三</li>
+      <li data-week="4" class="{{isToday==4 ?'on' :''}}">周四</li>
+      <li data-week="5" class="{{isToday==5 ?'on' :''}}">周五</li>
+      <li data-week="6" class="{{isToday==6 ?'on' :''}}">周六</li>
+      <li data-week="0" class="{{isToday==0 ?'on' :''}}">周日</li>
+    </ul>   
+  </view>
+
+<view class="content">
+  <ul class="class">
+    <li style="width:9%;">1</li>
+    <li><view bindtap="addClass"></view></li>
+    <li><view bindtap="addClass"></view></li>
+    <li><view bindtap="addClass"></view></li>
+    <li><view bindtap="addClass"></view></li>
+    <li><view bindtap="addClass"></view></li>
+    <li><view bindtap="addClass"></view></li>
+    <li><view bindtap="addClass"></view></li>
+  </ul>
+</view>
+</view>

@@ -1,0 +1,18 @@
+/* pages/notice/notice.wxss */
+
+view{ overflow: hidden;}
+.nav{ width: 100%; height: 100rpx; text-align: center; line-height: 100rpx; color: #ffba00; font-size: 40rpx; font-weight: bold;}
+.textarea_container{ width: 90%; height: 500rpx; margin: 0 auto; border-bottom: 2rpx solid #eee; background: #fff; overflow: hidden; margin-top: 30rpx;}
+.textarea{ display: block; box-sizing: border-box; padding: 15rpx; width: 100%; height: 100%; position: relative; top:0; left: 0;}
+.readed{ position: absolute; bottom: 10rpx; right: 0; width: 20%; height: 20rpx; line-height: 20rpx; font-size: 20rpx; color: #ddd;}
+.sendTo{ width: 100%; height: 300rpx; box-sizing: border-box; font-size: 33rpx;}
+.who,.target{ width: 100%; height: 100rpx; text-align: left; line-height: 100rpx; padding: 0 50rpx; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.choice{ width: 100%; height: 200rpx; color: #666;}
+.choice navigator{ width: 100%; height: 100rpx; box-sizing: border-box; padding: 0 50rpx;}
+.choice navigator>view{height: 100rpx; line-height: 100rpx; width: 100%; border-bottom: 2rpx solid #eee; box-sizing: border-box;}
+.choice navigator>view text{ display: block; height: 100rpx; line-height: 100rpx; max-width: 50%; float: right; margin-right: 10rpx; font-size: 28rpx; color: #ffba00;}
+.choice navigator>view image{ float: right; width: 50rpx; height: 50rpx; opacity: 0; transition: 200ms; margin-top: 25rpx;}
+.choice navigator>view.on{ color: #ffba00;}
+.choice navigator>view.on image{ opacity: 1;}
+
+van-button{ position: absolute; bottom: 100rpx;left: 50%;transform: translate(-50%, -50%);}

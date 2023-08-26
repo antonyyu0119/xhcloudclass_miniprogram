@@ -1,0 +1,97 @@
+<view class="my-info">
+  <image class="userAvatarUrl" src="{{userAvatarUrl}}"></image>
+  <text class="userNickName" lang="zh_CN">{{isuserName ?name :userNickName}}</text> 
+  <image class="id" src="{{idUrl}}"></image> 
+</view>
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../myinformation/myinformation"
+>
+  <view slot="title" class="title">
+    <image src="../../images/bianji.png"></image>
+    <text>编辑个人信息</text>
+  </view>
+</van-cell>
+<van-cell
+  wx:if="{{isStudent}}"
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../askfor/askfor"
+>
+  <view slot="title" class="title">
+    <image src="../../images/qingjia.png"></image>
+    <text>请假信息</text>
+  </view>
+</van-cell>
+<view class="line container-fluid clear"><text>我的宝库</text></view>
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item name="1" size="large">
+    <view slot="title" class="title">
+      <image src="../../images/wenjianjia.png"></image>
+      <text>我的文件</text>
+    </view>
+    <view class="file">
+      <ul>
+        <li bindtap="gotoKejianku"><image src="../../images/kejianku.png"></image><h4>我的课件库</h4></li>
+        <li bindtap="gotoShitiku"><image src="../../images/shijuanku.png"></image><h4>我的试题库</h4></li>
+      </ul>
+    </view>
+  </van-collapse-item>
+</van-collapse>
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../shoucang/shoucang"
+>
+  <view slot="title" class="title">
+    <image src="../../images/shoucang.png"></image>
+    <text>我的收藏</text>
+  </view>
+</van-cell>
+
+<view class="line container-fluid clear"><text>设置</text></view>
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../id/id"
+>
+  <view slot="title" class="title">
+    <image src="../../images/shenfenrenzheng.png"></image>
+    <text>身份认证</text>
+  </view>
+</van-cell>
+<van-cell
+  is-link
+  size="large"
+  link-type="navigateTo"
+  url="../phone/phone"
+>
+  <view slot="title" class="title">
+    <image src="../../images/bangdingshouji.png"></image>
+    <text>绑定手机</text>
+  </view>
+</van-cell>
+<van-cell
+  clickable
+  bindtap="clearStorage"
+  size="large"
+  value="{{currentSize}}"
+>
+  <view slot="title" class="title">
+    <image style="width: 38rpx; height: 38rpx;" src="../../images/lajitong.png"></image>
+    <text>清除缓存</text>
+  </view>
+</van-cell>
+<view class="line container-fluid clear"><text>帮助</text></view>
+
+<view class="contact"> 
+  <button open-type="contact">
+      <image src="../../images/kefu.png"></image>
+      <text>联系客服</text>
+  </button>
+</view>

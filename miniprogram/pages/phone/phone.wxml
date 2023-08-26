@@ -1,0 +1,29 @@
+<!--pages/phone/phone.wxml-->
+<van-cell-group>
+<van-field
+    value="{{ phoneNumber }}"
+    type="number"
+    center
+    clearable
+    placeholder="请输入手机号码"
+    border="{{ true }}"
+    use-button-slot
+  >
+    <van-button slot="button" size="small" disabled="{{isDisabled}}" type="this" bind:click="onClick_send">{{send}}</van-button>
+    <view slot="label" class="label">
+      <text>+86</text>
+    </view>
+  </van-field>
+  <van-field
+    value="{{ sms }}"
+    type="number"
+    center
+    clearable
+    placeholder="请输入短信验证码"
+  >
+    <van-button slot="button" size="small" type="this" bind:click="onClick_check"style="margin-right:27rpx;">验证</van-button>
+    <view slot="label" class="label">
+      <text>验证码</text>
+    </view>
+  </van-field>
+</van-cell-group>

@@ -1,0 +1,196 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useApiHostProcess": true,
+    "condition": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.14.1",
+  "appid": "wx884ebccf4138747a",
+  "projectname": "miniprogram-test",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "me",
+          "pathName": "pages/me/me",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "lesson",
+          "pathName": "pages/lesson/lesson",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "kefu",
+          "pathName": "pages/kefu/kefu",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "create",
+          "pathName": "pages/create/create",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "phone",
+          "pathName": "pages/phone/phone",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "class",
+          "pathName": "pages/class/class",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "id",
+          "pathName": "pages/id/id",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "classView_t",
+          "pathName": "pages/classView_t/classView_t",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "signin",
+          "pathName": "pages/signin/signin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "signup",
+          "pathName": "pages/signup/signup",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "instructor",
+          "pathName": "pages/instructor/instructor",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "askfor",
+          "pathName": "pages/askfor/askfor",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "faceID",
+          "pathName": "pages/faceID/faceID",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "cfmFaceID",
+          "pathName": "pages/cfmFaceID/cfmFaceID",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "regFaceID",
+          "pathName": "pages/regFaceID/regFaceID",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "signinInfo",
+          "pathName": "pages/signinInfo/signinInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "askforInfo",
+          "pathName": "pages/askforInfo/askforInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "activity",
+          "pathName": "pages/activity/activity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "sendNotification",
+          "pathName": "pages/sendNotification/sendNotification",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "studentInfo",
+          "pathName": "pages/studentInfo/studentInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "checkin",
+          "pathName": "pages/checkin/checkin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "srcMiniprogramRoot": "miniprogram/",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

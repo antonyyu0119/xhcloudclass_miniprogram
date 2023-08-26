@@ -1,0 +1,51 @@
+/* pages/activity/activity.wxss */
+page{ width: 100%; height: 100%; overflow: hidden;}
+
+@keyframes transition{
+  0%{ background: #ffba00;}
+  100%{ background: #fff;}
+}
+
+@keyframes transfer{
+  0%{ transform: translate(150rpx);}
+  /*50%{ transform: translate(75rpx);}*/
+  100%{  transform: translate(0rpx);}
+}
+
+text{ display: block;}
+
+#banner .wx-swiper-dot{
+  width: 50rpx;
+  height: 15rpx;
+  border-radius: 10rpx;
+}
+
+
+
+#module{ width: 95%; margin: 20rpx auto 0; border-radius: 20rpx; overflow: hidden;}
+#module .classify{ display: flex;}
+#module .classify>view{ flex: 1; box-sizing: border-box; background: #fff; border-bottom: 1rpx solid #e6e6e6; border-right: 1rpx solid #e6e6e6;}
+#module .classify>view.on{animation: transition 700ms linear infinite alternate;}
+#module .classify navigator{ height: 100%; width: 100%; display: block; padding: 40rpx 0 15rpx; box-sizing: border-box;} 
+#module .classify image{ width: 50rpx; height: 50rpx; display: block; margin: 0 auto;}
+#module .classify text{ line-height: 40rpx; height: 80rpx; width: 80%; text-align: center; margin: 15rpx auto 0; font-size: 30rpx;}
+
+van-popup .van-popup{ background: none; overflow: visible;}
+
+
+.container{ width: 600rpx; height: 550rpx; background: #ffba00; font-size: 33rpx; overflow: hidden; position: relative;}
+.content{ width: 100%; margin-top: 10rpx;}
+.begin{ width: 30%; margin: 0 auto; height: 50rpx; line-height: 50rpx; font-size: 35rpx; text-align: center; color: #fff;}
+.calltheRoll{ width: 100%;}
+.calltheRoll.top{ margin-top: 50rpx;}
+.calltheRoll>view{ width: 50%; padding: 20rpx; float: left; overflow: hidden; box-sizing: border-box;}
+.calltheRoll>view.on{ animation: transfer 1s cubic-bezier(0.23, 1, 0.320, 1); transform: translateX(0);}
+.calltheRoll>view.off{ transform: translateX(150rpx);}
+.calltheRoll>view.show{ opacity: 1; transition: 1000ms;}
+.calltheRoll>view.hidden{ opacity: 0;}
+.calltheRoll image{ display: block; width: 180rpx; height: 180rpx; border: 5rpx solid #fff; border-radius: 50%; margin: 0 auto;}
+
+.scroll{ width: 100%; height: 400rpx; padding: 0 50rpx; box-sizing: border-box;}
+.calltheRollList{ display: block; height: 50rpx; line-height: 50rpx; font-size: 33rpx; width: 25%; float: left; text-align: center;}
+.popup_btn{ width: 100%; height: 50rpx; display: flex; box-sizing: border-box; position: absolute; bottom: 0;}
+.popup_btn>view{ flex: 1; line-height: 50rpx; background: #ffba00; color: #fff; font-weight: bold; font-size: 35rpx; text-align: center;}

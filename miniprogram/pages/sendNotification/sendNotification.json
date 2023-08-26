@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-swipe-cell": "@vant/weapp/dist/swipe-cell/index",
+    "van-cell-group": "@vant/weapp/dist/cell-group/index",
+    "van-cell": "@vant/weapp/dist/cell/index"
+  },
+  "navigationBarTitleText": "通知"
+}

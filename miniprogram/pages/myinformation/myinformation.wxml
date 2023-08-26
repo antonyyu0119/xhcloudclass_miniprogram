@@ -1,0 +1,136 @@
+<view class="nav">
+  <text class="title">编辑个人信息</text>
+  <view class="save_btn" bindtap="onSave">
+    <view class="icon"><van-icon name="success" size="30px" color="white"></van-icon></view>
+    <text>保存</text>
+  </view>
+</view>
+<view class="touxiang">
+  <image class="userAvatarUrl" src="{{upload ? tempFilePaths : userAvatarUrl}}" ></image>
+  <image class="xiangji" src="../../images/xiangji.png" bindtap="uploadAvatar"></image>
+</view>
+
+<van-cell-group>
+  <van-field
+    class="{{isInstructor ?'hidden' :''}}"
+    size="large"
+    value="{{ change ? nickName_c : nickName }}"
+    clearable
+    readonly
+    placeholder-class="font-size: 33rpx;"
+    bind:blur="onBlur_nickName"
+  >
+    <view slot="label" class="label">
+      <text>昵称</text>
+    </view>
+  </van-field>
+  <van-field
+    size="large"
+    value="{{ name }}"
+    clearable
+    placeholder="请输入姓名"
+    bind:blur="onBlur_name"
+  >
+    <view slot="label" class="label">
+      <text>姓名</text>
+    </view>
+  </van-field>
+<view bindtap="chooseSex">
+  <van-field
+    size="large"
+    value="{{ sex }}"
+    readonly
+    placeholder="请选择"
+    bind:blur="onBlur_sex"
+    
+  >
+    <view slot="label" class="label">
+      <text>性别</text>
+    </view>
+  </van-field>
+</view>
+<van-popup
+  show="{{ show_sex }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+>
+  <van-picker
+  show-toolbar
+  title="性别"
+  columns="{{ columns_sex }}"
+  bind:cancel="onClose"
+  bind:confirm="onConfirm_sex"
+  />
+</van-popup>
+</van-cell-group>
+
+<view class="line"></view>
+
+<van-cell-group>
+<view><van-field
+    size="large"
+    value="{{identity}}"
+    placeholder="请选择"
+    readonly="true"
+    bind:blur="onBlur_id"
+  >
+    <view slot="label" class="label">
+      <text>身份</text>
+    </view>
+  </van-field>
+</view>
+
+  <van-field
+    class="{{isHidden ?'hidden' :''}} {{isInstructor ?'hidden' :''}}"
+    size="large"
+    value="{{ instructor }}"
+    clearable
+    placeholder="请输入辅导员姓名"
+    bind:blur="onBlur_instructor"
+  >
+    <view slot="label" class="label">
+      <text>辅导员</text>
+    </view>
+  </van-field>
+
+  <van-field
+    size="large"
+    value="{{ school }}"
+    placeholder="请输入院校"
+    bind:blur="onBlur_school"
+  >
+    <view slot="label" class="label">
+      <text>院校</text>
+    </view>
+  </van-field>
+  <van-field
+    class="{{isHidden ?'hidden' :''}}"
+    size="large"
+    value="{{ sno }}"
+    clearable
+    type="number"
+    placeholder="请输入学号(仅学生)"
+    bind:blur="onBlur_sno"
+  >
+    <view slot="label" class="label">
+      <text>学号</text>
+    </view>
+  </van-field>
+</van-cell-group>
+
+<view class="line"></view>
+
+<van-cell-group>
+<van-field
+    size="large"
+    value="{{ email }}"
+    clearable
+    placeholder="请输入常用邮箱"
+    bind:blur="onBlur_email"
+  >
+    <view slot="label" class="label">
+      <text>邮箱</text>
+    </view>
+  </van-field>
+</van-cell-group>

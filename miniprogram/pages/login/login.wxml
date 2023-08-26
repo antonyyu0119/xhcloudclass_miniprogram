@@ -1,0 +1,20 @@
+<!--pages/login/login.wxml-->
+<van-cell-group>
+  <view class="line">用户名</view>
+  <van-field
+    value="{{ username }}"
+    placeholder="输入用户名"
+    border="{{ false }}"
+    bind:change="onChange_username"
+  />
+  <view class="line">密码</view>
+  <van-field
+    value="{{ password }}"
+    placeholder="输入密码"
+    type="password"
+    border="{{ false }}"
+    bind:change="onChange_password"
+  />
+</van-cell-group>
+<van-button round disabled="{{isDisabled}}" type="this" open-type="getUserInfo" bindgetuserinfo="onClick" bindtap="onAlert">登录</van-button>
+<view class="signup" bindtap="gotoSignup">没有账号？点击注册 >></view>

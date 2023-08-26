@@ -1,0 +1,3 @@
+/* pages/join/join.wxss */
+.line{ height: 150rpx; line-height: 200rpx; font-size: 40rpx; padding-left: 30rpx; background: #f6f6f6;}
+van-button{ position: absolute; bottom: 100rpx;left: 50%;transform: translate(-50%, -50%);}

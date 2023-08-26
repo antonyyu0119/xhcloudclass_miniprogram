@@ -1,0 +1,48 @@
+/* components/speechroom/speechroom.wxss */
+
+.container{ perspective-origin: center; perspective: 2000rpx; -webkit-perspective: 2000rpx; -moz-perspective: 2000rpx; position: relative; height: 1000rpx; width: 100%;}
+.container.flip .speeches{ transform: rotateY(180deg);}
+.container.flip .history{ transform: rotateY(0);}
+
+.speeches,.history{ width: 100%; height: 100%; position: absolute; top: 0; left: 0; backface-visibility: hidden; transition: 1.5s; overflow: hidden;}
+
+.speeches{ background: #ffba00;}
+.nav{ height: 20%; width: 100%;}
+.nav .title{ font-size: 35rpx; line-height: 80rpx; height: 80rpx; width: 300rpx; text-align: center; margin: 0 auto;}
+.nav .line{ width: 90%; height: 2rpx; background: #eee; margin: 0 auto;}
+.nav_button{ display: flex;}
+.nav_button .button{ flex: 1; text-align: center; color: #fff;}
+.nav_button .button:nth-child(2){ color: #000;}
+
+
+.notice{ width: 100%; height: 50rpx; overflow: hidden;}
+.notice_content{ width: 100%; height: 50rpx; line-height: 50rpx; text-align: center; color: #f6f6f6; transform: translateY(-50rpx); transition: .5s;}
+.notice_content.on{ transform: translateY(0);}
+
+
+.speakerList, .historyList{ width: 100%; height: 80%;}
+
+.studentList{ width: 100%; font-size: 30rpx; background: #fff;}
+.studentList:active{ background: #eee;}
+.studentList .content{ width: 90%; height: 70rpx; margin: 0 auto; padding: 20rpx 0; border-bottom: 1rpx solid #eee; display: flex;}
+.studentList .studentInfo{ flex: 1;}
+.studentList .studentInfo .choose{ display: none; width: 50rpx; height: 50rpx; float: left; margin-top: 10rpx; margin-right: 25rpx;}
+.studentList .studentInfo .userAvatarUrl{ display: block; width: 70rpx; height: 70rpx; border: 1rpx solid #ffba00; box-sizing: border-box; border-radius: 50%; float: left;}
+.studentList .studentInfo .info{ float: left; margin-left: 20rpx;}
+.studentList .studentInfo .info .text{ display: block; height: 35rpx; line-height: 35rpx;}
+.studentList .moreInfo{ flex: 1; display: flex;}
+/* .studentList .moreInfo image{ display: block; width: 40rpx; height: 40rpx; float: right; margin-top: 15rpx;} */
+/* .studentList .moreInfo>view{ flex: 1; line-height: 70rpx;} */
+.studentList .moreInfo .time{ text-align: right; flex: 1; line-height: 70rpx;}
+.studentList .moreInfo .operate{ text-align: center; flex: 1; line-height: 70rpx;}
+
+.history{ background: #ffba00; transform: rotateY(-180deg);}
+.historyItem{ width: 95%; height: 100rpx; margin: 20rpx auto 0; display: flex; border: 2rpx solid #f8e1a3; box-sizing: border-box; border-radius: 20rpx; background: #f7f1df; overflow: hidden;}
+.historyItem .title, .historyItem .info{ flex: 1; padding-left: 15rpx; padding-right: 15rpx; box-sizing: border-box; font-size: 28rpx; color: #999;}
+
+.more{ width: 550rpx; height: 1000rpx; background: #f6f6f6;}
+.scrollArea{ height: 100%; width: 100%;}
+
+.hint{ width: auto; height: 80rpx; line-height: 80rpx; padding: 0 20rpx; margin: 20rpx auto; background: rgba(0,0,0,.1); color: #fff; border-radius: 5rpx; overflow: hidden; text-align: center; letter-spacing: 3rpx; font-size: 24rpx;}
+
+.bottom{ width: auto; height: 80rpx; line-height: 80rpx; padding: 0 20rpx; margin: 20rpx auto; color: #eee; letter-spacing: 3rpx; text-align: center; font-size: 24rpx;}

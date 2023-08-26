@@ -1,0 +1,13 @@
+<!--pages/moreInfo/moreInfo.wxml-->
+<view class="userAvatarUrl">
+<image class="touxiang" src="{{userAvatarUrl}}"></image>
+<image class="xiangji" src="{{studentInfo.ssex == '女' ?'../../images/nvxing.png' :'../../images/nanxing.png'}}"></image>
+</view>
+<view class="info">
+<view><text>姓名：</text><text>{{studentInfo.sname}}</text></view>
+<view><text>学号：</text><text>{{studentInfo.sno}}</text></view>
+<view><text>学校：</text><text>{{studentInfo.sschool}}</text></view>
+<view><text>辅导员：</text><text>{{studentInfo.instructor}}</text></view>
+<view><text>课堂成绩：</text><text>{{studentInfo.score}}</text></view>
+</view>
+<view wx:if="{{identity == 'teacher'}}" class="chat" bindtap="onChat"><image src="../../images/faqisixin.png"></image></view>

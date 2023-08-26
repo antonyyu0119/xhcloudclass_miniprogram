@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "van-icon": "vant-weapp/icon/index",
+    "van-notice-bar": "vant-weapp/notice-bar/index",
+    "van-tabbar": "vant-weapp/tabbar/index",
+    "van-tabbar-item": "vant-weapp/tabbar-item/index",
+    "van-cell": "vant-weapp/cell/index",
+    "van-cell-group": "vant-weapp/cell-group/index",
+    "van-sidebar": "../../miniprogram_npm/@vant/weapp/dist/sidebar/index",
+    "van-sidebar-item": "../../miniprogram_npm/@vant/weapp/dist/sidebar-item/index"
+  },
+  "navigationBarTitleText": "小河云班课-辅导员",
+  "enablePullDownRefresh": true
+}

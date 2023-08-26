@@ -1,0 +1,3 @@
+/* pages/present/present.wxss */
+.list{ width: 95%; height: 100rpx; margin: 20rpx auto 0; display: flex; border: 2rpx solid #f8e1a3; box-sizing: border-box; border-radius: 20rpx; background: #f7f1df; overflow: hidden;}
+.list>view{ flex: 1; padding-left: 15rpx; padding-right: 15rpx; box-sizing: border-box; font-size: 28rpx; color: #999;}

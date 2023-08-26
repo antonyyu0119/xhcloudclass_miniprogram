@@ -1,0 +1,53 @@
+<!--pages/checkin/checkin.wxml-->
+<view id="class_nav">
+<view class="l" style="width: 50%; text-align: left;">{{lessonName}}</view>
+<view class="r" style="text-align: right;" >课堂成绩记录 ></view>
+</view>
+<view id="signin_button">
+<view class="button">
+  <button bindtap="checkin">开始签到</button>
+  <text>距离：{{distance}}Km</text>
+</view>
+<view>
+  <view>已到：{{presentNum>0 ?presentNum :'0'}}人</view>
+  <view>未到：{{absentNum>0 ?absentNum :'0'}}人</view>
+  <view>请假：{{askforNum>0 ?askforNum :'0'}}人</view>
+</view>
+</view>
+
+<view class="result">
+
+<text class="title" style="background: #ffba00; text-align: center">签到结果</text>
+<view class="checkin_today">
+<text class="title">今天 ⬇</text>
+<view id="hint" wx:if="{{checkin_today.length <= 0}}">没有数据</view>
+<view class="list" wx:for="{{checkin_today}}" wx:key="{{index}}">
+<view>
+<view style="color: #ffba00; font-size: 40rpx;">{{item.sname}}</view>
+<view style="font-size: 25rpx;">{{item.sno}}</view>
+</view>
+<view style="text-align: right;">
+<view style="line-height: 40rpx;">今天</view>
+<view style="line-height: 75rpx;">{{item.checkinTime ?item.checkinTime :(item.askfor ?'请假' :'')}}</view>
+</view>
+</view>
+</view>
+
+<view class="checkin_history">
+<text class="title">历史记录 ⬇</text>
+<view id="hint" wx:if="{{checkin_history.length <= 0}}">没有数据</view>
+<view class="list" wx:for="{{checkin_history}}" wx:key="{{index}}">
+<view>
+<view style="color: #ffba00; font-size: 33rpx;">{{item.sname}}</view>
+<view style="font-size: 25rpx;">{{item.sno}}</view>
+</view>
+<view style="text-align: right;">
+<view style="line-height: 40rpx;">{{item.date}}</view>
+<view style="line-height: 75rpx;">{{item.checkinTime ?item.checkinTime :(item.askfor ?'请假' :'')}}</view>
+</view>
+</view>
+</view>
+
+</view>
+
+<text id="copyright">Copyright © 2020 余津一. All Rights Reserved.</text>

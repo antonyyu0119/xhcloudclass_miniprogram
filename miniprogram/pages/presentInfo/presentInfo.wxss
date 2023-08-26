@@ -1,0 +1,5 @@
+/* pages/presentInfo/presentInfo.wxss */
+page{ background: #ffba00;}
+.result{ width: 100%; height: 80rpx; margin-top: 20rpx;}
+.result>view{ width: 33.33%; height: 100%; line-height: 80rpx; text-align: center;}
+text{ display: block;}

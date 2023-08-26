@@ -1,0 +1,99 @@
+<!--components/speechroom/speechroom.wxml-->
+<view class="speechroom">
+  <view class="container {{flip}}">
+    <view class="speeches">
+      <view class="nav">
+        <view class="title">课堂发言</view>
+        <view class="line"></view>
+        <view class="notice">
+          <view class="notice_content {{notice_animation}}">{{notice}}</view>
+        </view>
+        <view class="nav_button">
+          <view class="button" wx:if="{{identity == 'teacher'}}" bindtap="{{isOpen ?'closeSpeech' :'openSpeech'}}">
+            {{isOpen ?'关闭发言' :'开启发言'}}</view>
+          <view class="button" wx:if="{{identity == 'student'}}" bindtap="readyToJoin">我要发言</view>
+          <view class="button">当前发言人数: {{speakerList.length > 0 ?speakerList.length :'0'}}</view>
+          <view class="button" bindtap="checkHistory">历史记录</view>
+        </view>
+      </view>
+
+      <scroll-view class="speakerList" scroll-y scroll-with-animation="true">
+        <view wx:for="{{speakerList}}" class="studentList" wx:key="index">
+          <view class="content">
+            <view class="studentInfo">
+              <image class="choose" style="{{action=='onChoose' ?'display: block' :''}}"
+                src="../../images/{{item.choose == 'chosen' ?'xuanzhong' :'choose'}}.png"></image>
+              <image class="userAvatarUrl" src="{{item.userAvatarUrl}}"></image>
+              <view class="info">
+                <text class="text" style="color: #ffba00;">{{item.sname}}</text>
+                <text class="text" style="font-size: 25rpx; color: #666;">{{item.sno}}</text>
+              </view>
+            </view>
+            <view class="moreInfo">
+              <view wx:if="{{identity == 'teacher'}}" class="operate" bindtap="addScore" data-_openid="{{item._openid}}" data-sname="{{item.sname}}" data-sno="{{item.sno}}">加分</view>
+              <view wx:if="{{item._openid == openId}}" data-_openid="{{item._openid}}" class="withdraw"
+                bindtap="operate">撤回</view>
+              <view class="time">{{item.joinTime}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="hint" wx:if="{{speakerList.length == 0}}">还没有人发言哦~</view>
+        <view class="bottom">到底了~</view>
+      </scroll-view>
+    </view>
+    <view class="history">
+      <view class="nav">
+        <view class="title">发言历史记录</view>
+        <view class="line"></view>
+        <view class="notice"></view>
+        <view class="nav_button">
+          <view class="button" style="color: #000;">共计: {{historyList.length > 0 ?historyList.length :'0'}}条</view>
+          <view class="button" bindtap="checkHistory">返回发言主页</view>
+        </view>
+      </view>
+
+      <scroll-view scroll-y class="historyList">
+        <view class="historyItem" wx:for="{{historyList}}" wx:key="index" bindtap="showMore" data-_id="{{item._id}}">
+          <view class="title">
+            <view style="color: #ffba00; font-size: 30rpx; line-height: 40rpx;">{{item.lessonName}}
+              {{item.className ?item.className :''}}</view>
+          </view>
+          <view class="info" style="text-align: right;">
+            <view style="line-height: 40rpx;">
+              {{item.date == dateObj.today ?'今天' :(item.date == dateObj.yesterday ?'昨天' :item.date)}}
+              {{item.time ?item.time :''}}</view>
+            <view style="line-height: 75rpx;">已发言：{{item.speakers.length}}人</view>
+          </view>
+        </view>
+
+      </scroll-view>
+
+      <van-popup show="{{popup}}" position="right" bind:close="showMore">
+        <view class="more">
+          <scroll-view class="scrollArea" scroll-y>
+            <view wx:for="{{speakerArr}}" class="studentList" wx:key="index">
+              <view class="content">
+                <view class="studentInfo">
+                  <image class="choose" style="{{action=='onChoose' ?'display: block' :''}}"
+                    src="../../images/{{item.choose == 'chosen' ?'xuanzhong' :'choose'}}.png"></image>
+                  <image class="userAvatarUrl" src="{{item.userAvatarUrl}}"></image>
+                  <view class="info">
+                    <text class="text" style="color: #ffba00;">{{item.sname}}</text>
+                    <text class="text" style="font-size: 25rpx; color: #666;">{{item.sno}}</text>
+                  </view>
+                </view>
+                <view class="moreInfo">
+                  <view class="time">{{item.joinTime}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{speakerArr.length == 0}}" class="hint">木有人发言哦~</view>
+          </scroll-view>
+        </view>
+
+      </van-popup>
+
+    </view>
+  </view>
+
+</view>

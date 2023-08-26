@@ -1,0 +1,4 @@
+/* pages/id/id.wxss */
+.title { height: 40rpx; overflow: hidden; margin-top: 3rpx;}
+.title text{ height: 40rpx; line-height: 41rpx; float: left; font-size: 33rpx}
+.title image{ width: 40rpx; height: 40rpx; float: left;margin-right: 30rpx;}

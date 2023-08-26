@@ -1,0 +1,13 @@
+/* pages/checkin/checkin.wxss */
+view{ overflow: hidden;}
+
+page{ background: #ffba00;}
+
+.button{ width: 100%; height: 100%}
+.button>button{ width: 100%; height: 60%;}
+.button>text{ width: 100%; height: 40%; display: block; color: #999; text-align: center;}
+
+.result{ padding-bottom: 50rpx;}
+.title{ display: block; overflow: hidden; width: 100%; height: 80rpx; line-height: 80rpx; box-sizing: border-box; color: #fff; border-bottom: 5rpx solid #fff; padding-left: 20rpx;}
+.list{ width: 95%; height: 100rpx; margin: 20rpx auto 20rpx; display: flex; border: 2rpx solid #f8e1a3; box-sizing: border-box; border-radius: 20rpx; background: rgba(255, 255, 255, .5);}
+.list>view{ flex: 1; padding-left: 15rpx; padding-right: 15rpx; box-sizing: border-box; font-size: 30rpx; color: #999;}

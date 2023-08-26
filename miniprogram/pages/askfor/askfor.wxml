@@ -1,0 +1,130 @@
+<!--pages/askfor/askfor.wxml-->
+<scroll-view class="list_container" scroll-y="{{true}}">
+<van-tabs animated="true" color="#ffba00" active="{{ active }}" sticky="true" class="nav">
+  <van-tab title="待批信息" title-style="font-size: 33rpx">
+  待批假条在这里
+  <view class="list" wx:for="{{unReadList}}" wx:key="{{index}}" data-_id="{{item._id}}" data-hasread="{{item.hasRead}}" catchtap="askforInfo">
+  <view class="hasRead">{{item.hasRead}}</view>
+  <view class="date">{{item.date}}</view>
+  <view class="time">请假时段：{{item.time}}</view>
+  <text class="reason">理由：{{item.reason}}</text>
+  <view class="revoke" catchtap="revoke" data-revoke_id="{{item._id}}">撤销</view>
+  </view>
+  </van-tab>
+  <van-tab title="历史记录" title-style="font-size: 33rpx" info="{{newHistory}}">历史假条在这里
+  <view class="list {{item.isApprove == 'approve' ?'approve' :''}} {{item.isApprove == 'disapprove' ?'disapprove' :''}}" wx:for="{{readList}}" wx:key="{{index}}" data-_id="{{item._id}}" catchtap="askforInfo">
+  <view class="hasRead" style="color: #18ac05;">{{item.hasRead}}</view>
+  <view class="date">{{item.date}}</view>
+  <view class="time">请假时段：{{item.time}}</view>
+  <text class="reason">理由：{{item.reason}}</text>
+  </view>
+  </van-tab>
+</van-tabs>
+</scroll-view>
+<view class="footer">
+<view class="addAskfor">
+<view bindtap="addAskfor"><van-icon name="plus" size="30px"/></view>
+</view>
+</view>
+<van-popup class="popup" show="{{ show }}" bind:close="onClose" overlay="{{false}}" close-on-click-overlay="{{false}}">
+<view class="container">
+<view class="content_nav">添加请假信息</view>
+<scroll-view class="content" scroll-y="{{true}}">
+<van-cell-group>
+  <view class="line"><text>个人信息</text></view>
+  <van-field
+    value="{{ sname }}"
+    required
+    clearable
+    bind:change="onChange_sname"
+  >
+    <view slot="label" class="label">
+      <text>姓名</text>
+    </view>
+  </van-field>
+  <van-field
+    value="{{ sno }}"
+    required
+    bind:change="onChange_sno"
+  >
+    <view slot="label" class="label">
+      <text>学号</text>
+    </view>
+  </van-field>
+  <van-field
+    value="{{ school }}"
+    required
+    bind:change="onChange_school"
+  >
+    <view slot="label" class="label">
+      <text>学校</text>
+    </view>
+  </van-field>
+  <van-field
+    value="{{ department }}"
+    required
+    bind:change="onChange_department"
+  >
+    <view slot="label" class="label">
+      <text>院系</text>
+    </view>
+  </van-field>
+  <van-field
+    value="{{ instructor }}"
+    required
+    bind:change="onChange_instructor"
+  >
+    <view slot="label" class="label">
+      <text>辅导员</text>
+    </view>
+  </van-field>
+  <view class="line"><text>请假时段</text></view>
+  <van-field
+    value="{{ startTime }}"
+    required
+    readonly
+    placeholder="请选择"
+    bindtap="chooseTime1"
+    bind:click-icon="onClickIcon"
+  >
+    <view slot="label" class="label">
+      <text>起始时间</text>
+    </view>
+  </van-field>
+
+  <van-field
+    value="{{ finishTime }}"
+    placeholder="请选择"
+    required
+    readonly
+    bindtap="chooseTime2"
+  >
+    <view slot="label" class="label">
+      <text>终止时间</text>
+    </view>
+  </van-field>
+
+  <van-popup
+  style ="z-index: 10;"
+  show="{{ show_time }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="closeTime"
+>
+  <van-picker
+  show-toolbar
+  columns="{{ columns_time }}"
+  bind:cancel="closeTime"
+  bind:confirm="onConfirm_time"
+  />
+  </van-popup>
+</van-cell-group>
+  <view class="line"><text>请假理由</text></view>
+<view class="textarea_container">
+  <textarea wx:if="{{discover}}" class="textarea" placeholder="请输入真实理由(不超过100字)" placeholder-style="color:#999;" cursor-spacing="40px;" maxlength="100" bindinput="onInput"></textarea>
+</view>
+</scroll-view>
+<view class="button cancel" bindtap="onClose">取消</view>
+<view class="button submit" bindtap="onSubmit">提交</view>
+</view>
+</van-popup>

@@ -1,0 +1,20 @@
+/* pages/classView_t/classView_t.wxss */
+
+
+text{ display: block; }
+.name{ letter-spacing: 20rpx; color: #999999;}
+.classInfo>view{ width: 670rpx; height: 80rpx; line-height: 80rpx; margin: 0 40rpx; letter-spacing: 5rpx; font-size: 30rpx; border-bottom: 2rpx solid rgb(245, 235, 209); overflow: hidden; position: relative;}
+.classInfo text{ width: 33.3%; box-sizing: border-box; float: left;}
+.classInfo .content{ width: 66.7%;}
+.classInfo .icon{ position: absolute; right: 5rpx; top: 15rpx;}
+.classInfo image{ display: block; width: 50rpx; height: 50rpx;}
+.classify{ display: flex; width: 100%; height: 150rpx; padding: 0 30rpx; box-sizing: border-box; margin-top: 10rpx;}
+.classify view{ flex: 1; padding-top: 20rpx; box-sizing: border-box;}
+.classify image{ width: 80rpx; height: 80rpx; display: block; margin: 0 auto;}
+.classify text{ height: 35rpx; line-height: 35rpx; text-align: center; font-size: 30rpx; margin-top: 15rpx;}
+
+.footer{ width: 100%; height: 100rpx; position: fixed; bottom: 0;  z-index: 100; overflow: hidden; box-shadow: 0 -20rpx 100rpx 15rpx #f8e5b2;}
+.delete{ width: 100%; height: 100%; text-align: center; position: relative; background: none; color: #ffba00;}
+.delete view{ width: 205rpx; height: 100%; margin: 0 auto; line-height: 100rpx;}
+.delete text{ display: block; float: left; width: 145rpx;}
+.delete image{ display: block; width: 60rpx; height: 60rpx; float: right; margin-top: 20rpx;}

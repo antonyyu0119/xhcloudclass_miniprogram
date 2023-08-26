@@ -1,0 +1,30 @@
+<view class="welcomeSreen {{isShow ?'hidden' :''}}">
+<progress wx:if="{{loading}}" percent="{{percent}}" duration="{{duration}}" stroke-width="2" active-mode="forwards" active/>
+  <view>
+  <image src="../../images/logo.png"></image>
+  <view>小河云班课</view>
+  </view>
+  
+  <text id="copyright" style="position: absolute; bottom: 0;">Copyright © 2020 余津一. All Rights Reserved.</text>
+</view>
+
+<view wx:if="{{isShow}}" class="login">
+    <view wx:if="{{canIUse}}" >
+        <view class='login_header'>
+          <image src="../../images/logo.png"></image>
+          <view>小河云班课</view>
+        </view>
+        <view class='login_content'>
+            <view>请选择登录身份以进入小程序</view>
+            <text>登录小程序将直接获得你的公开信息(昵称，头像等)</text>
+        </view>
+        <view class="login_btn">
+          <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" data-identity="teacher"><image src="../../images/jiaoshi.png"></image><text>我是老师</text></button>
+          <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" data-identity="student"><image src="../../images/xuesheng.png"></image><text>我是学生</text></button>
+        </view>
+        <view class="instructor_enter" bindtap="instructorEnter">辅导员入口 >></view>
+        
+        <text id="copyright" style="position: absolute; bottom: 0;">Copyright © 2020 余津一. All Rights Reserved.</text>
+    </view>
+    <view wx:else>请升级微信版本</view>
+</view>

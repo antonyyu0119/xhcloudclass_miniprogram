@@ -1,0 +1,4 @@
+/* pages/create/create.wxss */
+.line{ height: 110rpx; line-height: 140rpx; font-size: 40rpx; padding-left: 30rpx; background: #f6f6f6;}
+van-button{ position: absolute; bottom: 100rpx; left: 50%; transform: translate(-50%, -50%);}
+van-button text{ width: 200rpx;}

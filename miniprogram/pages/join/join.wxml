@@ -1,0 +1,19 @@
+<!--pages/join/join.wxml-->
+<van-cell-group>
+  <view class="line">课程</view>
+  <van-field
+    value="{{ lessonName }}"
+    placeholder="请输入课程名称"
+    border="{{ false }}"
+    bind:change="onChange_lessonName"
+  />
+  <view class="line">班级ID</view>
+  <van-field
+    value="{{ classID }}"
+    placeholder="请输入班级ID(注意：区分大小写字母)"
+    border="{{ false }}"
+    bind:change="onChange_classID"
+  />
+</van-cell-group>
+<van-button round disabled="{{isDisabled}}" type="this" bind:click="onClick" bindtap="onAlert">加入</van-button>
+

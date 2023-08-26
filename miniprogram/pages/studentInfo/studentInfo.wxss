@@ -1,0 +1,29 @@
+/* pages/studentInfo/studentInfo.wxss */
+page{ background: #fff;}
+.nav{ width: 100%; height: 80rpx; overflow: hidden; position: sticky; top: 0; font-size: 30rpx; z-index: 2; background: #ffba00; border-bottom: 2rpx solid #eee;}
+.nav>view{ position: absolute; max-width: 20%; height: 100%; line-height: 80rpx;}
+.nav .title{ left: 50%; transform: translateX(-50%); line-height: 100rpx;}
+button{ height: 60rpx; line-height: 60rpx; min-width: 100rpx; max-width: 200rpx; background: #ffba00; padding: 0 15rpx; right: 15rpx; top: 10rpx; position: absolute; font-size: 30rpx; color: #fff;}
+
+/* flex布局 */
+/* .search{ position: relative; width: 100%; height: 100rpx; overflow: hidden; background: #ffba00; padding: 20rpx; box-sizing: border-box; display: flex;}
+.search image{ width: 40rpx; height: 40rpx;}
+.search .search_area{ background: #fddd86; border-radius: 10rpx; flex: 1; height: 100%; transition: 200ms;} */
+
+/* 一般布局 */
+.search{ width: 100%; height: 100rpx; overflow: hidden; background: #ffba00;}
+.search .search_area{ width: calc(100% - 40rpx); height: 60rpx; margin-left: 20rpx; margin-top: 20rpx; background: #fddd86; border-radius: 10rpx; transition: 200ms linear; float: left; position: relative;}
+.search .search_area .search_btn{ width: 100%; height: 100%; line-height: 60rpx; color: #fff; display: flex;}
+.search .search_area .search_btn .image{ height: 40rpx; width: 40rpx; padding: 10rpx; margin-left: 40%; transition: 200ms linear;}
+.search .search_area .search_btn input{ height: 60rpx; line-height: 60rpx; flex: 1;}
+.search .cancel{ width: 100rpx; height: 100%; line-height: 100rpx; text-align: center; float: left; margin-right: -100rpx; opacity: 0;transition: 200ms linear;}
+.search .search_area.show{ width: calc(100% - 120rpx);}
+.search .search_area .image.show{ margin-left: 0;}
+.search .cancel.show{ margin-right: 0; opacity: 1;}
+
+/* 搜索提示 */
+.search_hint{ width: 100%; color: #999;}
+.search_hint .title{ width: 100%; height: 100rpx; text-align: center; line-height: 100rpx; border-bottom: 2rpx solid #eee;}
+.search_hint .content{ width: 100%; padding: 50rpx 150rpx; display: flex; box-sizing: border-box;}
+.search_hint .content view{ flex: 1; display: flex; justify-content: center; align-items: center;}
+.search_hint .content view:first-child{ border-right: 2rpx solid #eee;}

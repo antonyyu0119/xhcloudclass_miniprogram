@@ -1,0 +1,37 @@
+<!--pages/classView_s/classView_s.wxml-->
+<view class="classInfo" >
+<view class="lessonName"><text selectable="true">{{classDetail.lessonName}}</text></view>
+<view class="tname"><text class="name">教    师：</text><text selectable="true">{{classDetail.tname}}</text></view>
+<view class="classroom"><text class="name">教    室：</text><text selectable="true">{{classDetail.classroom}}</text></view>
+<view class="className"><text class="name">班    级：</text><text selectable="true">{{classDetail.className}}</text></view>
+<view class="className"><text style="color: #999;">班级ID   ：  </text><text selectable="true">{{classDetail.classId}}</text><image src="../../images/fuzhi.png" bindtap="copy"></image></view>
+<view class="classOrder"><text class="name">时    间：</text><text selectable="true">{{classDetail.classWeek}}，{{classDetail.classOrder}}-{{classDetail.classOrder+classDetail.classNum-1}}节</text></view>
+<view class="studentNum"><text class="name">人    数：</text><text>{{studentNum}}</text></view>
+</view>
+
+<view class="classify">
+<view bindtap="activity"><image src="../../images/ketanghuodong.png"></image><text style=" color: #53ba9e;">课堂活动</text></view>
+<view bindtap="onChat"><image src="../../images/faqisixin.png"></image><text style="color: #6bbf69;">私信老师</text></view>
+<view bindtap="achievement"><image src="../../images/ketangchengji.png"></image><text style="color: #4a25a5;">课堂成绩</text></view>
+</view>
+
+<view class="studentNav">学生列表</view>
+
+<view id="studentList" wx:for="{{studentList}}" wx:key="{{index}}" bindtap="moreInfo" data-openid="{{item.openid}}" data-useravatarurl="{{item.userAvatarUrl}}" data-index="{{index}}" >
+
+<view class="content">
+<view class="studentInfo">
+  <image class="userAvatarUrl" src="{{item.userAvatarUrl}}"></image>
+  <view class="info">
+    <text style="color: #ffba00;">{{item.sname}}</text>
+    <text style="font-size: 25rpx; color: #666;">{{item.sno}}</text>
+  </view>
+</view>
+<view class="moreInfo"><image src="../../images/youjiantou2.png"></image>
+</view>
+</view>
+
+</view>
+
+<view class="footer"><button bindtap="withdraw" class="withdraw"><view><text>退出班级</text><image src="../../images/tuichu.png"></image></view></button>
+</view>

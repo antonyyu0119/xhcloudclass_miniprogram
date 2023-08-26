@@ -1,0 +1,17 @@
+.my-info{height: 150rpx; background: #ffba00;}
+.my-info .userNickName{ height: 150rpx; line-height: 150rpx; float: left; padding-left: 20rpx; font-size: 40rpx; color: white;}
+.my-info .userAvatarUrl{ width: 100rpx; height: 100rpx; float: left; display: block; margin-top: 25rpx; margin-left: 35rpx; border: 5rpx solid white; border-radius: 50%; background-color: white; overflow: hidden;}
+.my-info .id{ float: right; width: 40rpx; height: 40rpx; margin: 60rpx 40rpx 0 0;}
+.line{ height: 100rpx; background: #f6f6f6;}
+.line text{ height: 100rpx; line-height: 130rpx; font-size: 30rpx; padding-left: 35rpx;}
+.title { height: 40rpx; overflow: hidden; margin-top: 3rpx;}
+.title text{ height: 40rpx; line-height: 41rpx; float: left; font-size: 33rpx}
+.title image{ width: 40rpx; height: 40rpx; float: left; margin-right: 30rpx;}
+.contact button{ width: 100%; height: 90rpx; padding-top:12px;background: #fff; font-size: 33rpx;}
+.contact button image{ width: 40rpx; height: 40rpx; float: left;margin-right: 30rpx; margin-left: 5rpx;}
+.contact button text{ display: block; line-height: 45rpx; text-align: left;}
+.file{ height: 80rpx; width: 100%; overflow: hidden;}
+.file ul{ height: 80rpx; display: flex;}
+.file ul li{ height: 80rpx; overflow: hidden; margin-left: 50rpx; margin-right: 30rpx; flex: 1;}
+.file ul li image{ width: 60rpx; height: 60rpx; float: left; margin-top: 10rpx;}
+.file ul li h4{ float: left; height: 50rpx; line-height: 50rpx; margin: 15rpx 0 15rpx 20rpx; color: #3c3c3c; font-size: 30rpx; text-align: center;}

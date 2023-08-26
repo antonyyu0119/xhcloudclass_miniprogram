@@ -1,0 +1,34 @@
+<!--pages/achievement/achievement.wxml-->
+<view class="nav">
+  <view class="count">共计：{{achievementList.length}}条</view>
+  <view class="total" wx:if="{{identity == 'student'}}">总成绩：{{totalAchievements}}</view>
+  <view class="export" wx:if="{{identity == 'teacher'}}">导出数据</view>
+</view>
+<view class="space"></view>
+<view wx:if="{{achievementList.length == 0}}" id="hint">暂时没有记录~</view>
+<view wx:if="{{achievementList.length > 0}}">
+  <view id="studentList" wx:for="{{achievementList}}" wx:key="index"
+    data-openid="{{item.openid}}" data-useravatarurl="{{userAvatarUrl}}"
+    data-_index="{{item._index}}" data-flag="{{index}}" data-choose="{{item.choose}}">
+
+    <view class="content">
+      <view class="studentInfo">
+        <image class="choose" style="{{action=='onChoose' ?'display: block' :''}}"
+          src="../../images/{{item.choose == 'chosen' ?'xuanzhong' :'choose'}}.png"></image>
+        <image class="userAvatarUrl" src="{{item.userAvatarUrl || userAvatarUrl}}"></image>
+        <view class="info">
+          <text style="color: #ffba00;">{{sname || item.sname}}</text>
+          <text style="font-size: 25rpx; color: #666;">{{sno || item.sno}}</text>
+        </view>
+      </view>
+      
+      <view class="moreInfo">
+        <view class="classInfo">{{item.date == today ?'今天' :(item.date == yesterday ?'昨天' :item.date)}} {{item.time}}</view>
+        <view class="scoreInfo">
+          {{item.scoreType == 'signin' ?'签到成功' :(item.scoreType == 'speech' ?'课堂发言' :item.info)}} {{item.score >= 0 ? '+'+item.score : item.score}}
+        </view>
+        
+      </view>
+    </view>
+  </view>
+</view>

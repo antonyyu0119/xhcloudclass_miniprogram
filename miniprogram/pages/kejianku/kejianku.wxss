@@ -1,0 +1,11 @@
+.nav{ height: 100rpx; margin-top: 10rpx; overflow: hidden; border-bottom: 2rpx solid #eeeeee; }
+.nav .nav_left ul{ float: left; height: 120rpx;}
+.nav .nav_left ul li{ float: left; width: 160rpx; height: 100rpx; line-height: 110rpx; margin: 0 20rpx 0 40rpx; font-size: 33rpx; color: #666666; position: relative;}
+.nav .nav_left ul li.on{ font-size: 35rpx; color: black; font-weight: bold;}
+.nav .nav_left ul li::after{ content: ''; width: 80rpx; height: 4rpx; background: #f6f6f6; position: absolute; bottom: 1rpx; left: 35rpx;}
+.nav .nav_left ul li.on::after{ background: #ffba00;}
+.nav .nav_right{ float: right; margin-top: 30rpx; margin-right: 40rpx;}
+.content{ overflow: hidden;}
+.content scroll-view{ width: 100%; overflow: hidden; text-align: center;}
+.block{ display: block;}
+.none{ display: none;}

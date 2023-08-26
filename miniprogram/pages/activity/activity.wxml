@@ -1,0 +1,87 @@
+<!--pages/activity/activity.wxml-->
+<view wx:if="{{isShow}}" class="notice" bindtap="signinInfo">
+<van-notice-bar
+  scrollable="false"
+  text="{{countdown}}"
+>
+</van-notice-bar>
+</view>
+<view id="class_nav">
+<view class="l" style="width: 50%;">{{lessonName}}</view>
+<view class="r" style="text-align: right;" bindtap="achievement">课堂成绩记录 ></view>
+</view>
+
+<view id="banner">
+<swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" easing-function="easeOutCubic" previous-margin="" indicator-active-color="#ffba00" indicator-color="rgba(255,186,0,.5)">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <image style="width: 100%; height: 100%;" src="{{item}}"></image>
+          </swiper-item>
+        </block>
+</swiper>
+</view>
+
+<view id="module">
+<view class="classify">
+<view><navigator url="{{identity == 'teacher' ?'../signinInfo/signinInfo' :'../checkin/checkin'}}"><view><image src="../../images/ketangqiandao.png"></image><text>课堂签到</text></view></navigator></view>
+<view bindtap="onSpeech" class="{{isOpen ?'on' :''}}"><navigator><view><image src="../../images/jushoufayan.png"></image>
+<text>{{isOpen ?'课堂发言进行中...' :'课堂发言'}}</text>
+</view></navigator></view>
+<view bindtap="popup" style="border-right: none"><navigator><view><image src="../../images/suijidianming.png"></image><text>{{identity == 'teacher' ?'随机点名' :'点名结果'}}</text></view></navigator></view>
+</view>
+<view class="classify">
+<view style="border-bottom: none;"><navigator><view><image src="../../images/ketangceshi.png"></image><text>课堂测试</text></view></navigator></view>
+<view style="border-bottom: none;"><navigator><view><image src="../../images/shipinshouke.png"></image><text>{{identity == 'teacher' ?'视频授课' :'视频课堂'}}</text></view></navigator></view>
+<view style="border-bottom: none; border-right: none"><navigator><view><image src="../../images/toupiao.png"></image><text>投票</text></view></navigator></view>
+</view>
+</view>
+
+<!-- 课堂发言 -->
+<van-popup show="{{showSpeeches}}" bind:close="onClose" position="bottom" >
+  <!-- 使用自定义发言室组件 -->
+  <speechroom bind:switchOn="setOpenTrue" bind:switchOff="setOpenFalse"
+    classInfo="{{classInfo}}"
+    condition="{{condition}}"
+    profile="{{profile}}"
+    collection="speeches"
+    dateObj="{{dateObj}}"
+    identity="{{identity}}"
+    
+  ></speechroom>
+</van-popup>
+<!-- 随机点名 -->
+<van-popup class="popup" show="{{ show }}" bind:close="onClose"  close-on-click-overlay="{{false}}">
+<view class="container">
+<text style=" display: block; text-align: center; line-height: 100rpx; width: 100%; height: 100rpx; background: #fff; border-radius: 0 0 50% 50%; color: #ffba00;" >{{identity == 'teacher' ?'-随机点名-' :'-点名结果-'}}</text>
+
+<view class="content" wx:if="{{!showHistory}}" >
+
+<view wx:if="{{identity == 'teacher'}}" class="begin" catchtap="calltheRoll">开始点名</view>
+
+<view class="calltheRoll {{identity == 'student' ?'top' :''}}">
+<view class="{{calltheRoll ?'on' :'off'}}">
+<image src="{{avatarUrl}}" bindtap="{{calltheRoll ?'' :''}}"></image>
+<text style="display: block; width: 100%; height: 50rpx; margin: 20rpx auto 0; text-align: center; ">{{sname}}</text>
+</view>
+<view class="{{calltheRoll ?'show' :'hidden'}}">
+<image style="border: none; width: 80rpx; height: 80rpx; margin-top: 15rpx;" src="../../images/xieyanxiao.png"></image>
+<text style="display: block; width: 100%; height: 50rpx; font-size: 40rpx; font-weight: bold; color: #fff; margin-top: 10rpx; text-align: center;">点到你了</text>
+</view>
+</view>
+
+</view>
+
+<scroll-view wx:if="{{showHistory}}" class="scroll" scroll-y="{{true}}">
+<view wx:for="{{calltheRollList}}" wx:key="{{index}}" class="calltheRollList">
+{{item.sname}}</view>
+</scroll-view>
+
+<view class="popup_btn">
+<view bindtap="showHistory">{{label}}</view>
+<view bindtap="onClose">关闭</view>
+</view>
+
+</view>
+</van-popup>
+

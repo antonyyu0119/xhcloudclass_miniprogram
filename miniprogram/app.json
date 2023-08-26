@@ -1,0 +1,81 @@
+{
+  "pages": [
+    
+    "pages/start/start",
+    "pages/login/login",
+    "pages/signup/signup",
+    "pages/instructor/instructor",
+    "pages/class/class",
+    "pages/create/create",
+    "pages/join/join",
+    "pages/classView_t/classView_t",
+    "pages/studentInfo/studentInfo",
+    "pages/activity/activity",
+    "pages/signinInfo/signinInfo",
+    "pages/present/present",
+    "pages/presentInfo/presentInfo",
+    "pages/sendNotification/sendNotification",
+    "pages/notice/notice",
+    "pages/chat/chat",
+    "pages/classView_s/classView_s",
+    "pages/achievement/achievement",
+    "pages/checkin/checkin",
+    "pages/cfmFaceID/cfmFaceID",
+    "pages/cfmFaceID_cpb/cfmFaceID_cpb",
+    "pages/moreInfo/moreInfo",
+    "pages/message/message",
+    "pages/me/me",
+    "pages/myinformation/myinformation",
+    "pages/askfor/askfor",
+    "pages/askforInfo/askforInfo",
+    "pages/upload/upload",
+    "pages/cut/cut",
+    "pages/kejianku/kejianku",
+    "pages/shitiku/shitiku",
+    "pages/shoucang/shoucang",
+    "pages/id/id",
+    "pages/regFaceID/regFaceID",
+    "pages/regFaceID_cpb/regFaceID_cpb",
+    "pages/phone/phone",
+    "pages/kefu/kefu",
+    "pages/lesson/lesson",
+    "pages/test/test"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "小程序将获取你的位置信息"
+    }
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffba00",
+    "navigationBarTextStyle": "white",
+    "backgroundColorTop": "#ffba00"
+  },
+  "tabBar": {
+    "color": "#b5b5b2",
+    "selectedColor": "#ffba00",
+    "list": [
+      {
+        "pagePath": "pages/class/class",
+        "text": "班课",
+        "iconPath": "images/kecheng.png",
+        "selectedIconPath": "images/kecheng-actived.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "images/xiaoxi.png",
+        "selectedIconPath": "images/xiaoxi-actived.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/wode.png",
+        "selectedIconPath": "images/wode-actived.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap28.json"
+}

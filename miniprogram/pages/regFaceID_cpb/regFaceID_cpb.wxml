@@ -1,0 +1,25 @@
+<!--pages/regFaceID_cpb/regFaceID_cpb.wxml-->
+<van-notice-bar  
+  scrollable="true"
+  left-icon="volume-o"
+  text="此功能为体验功能。如在实际体验中出现问题，请及时联系客服解决 ！"
+/>
+
+<text class="guide">请面向屏幕，保持静止，点击按钮直至边框闪烁</text>
+
+<view class="face_container {{change ? 'on_other' : 'off_other'}}">
+<camera wx:if="{{!change}}" device-position="front" flash="off" binderror="error" class="photo" ></camera>
+<image wx:if="{{change}}" src="{{src}}" class="photo" ></image>
+</view>
+
+<view class="hint">
+<text>温馨提示：</text>
+<text>1.人脸注册功能为课堂签到所需，如不注册，将无法签到！</text>
+<text style="margin-top: 40rpx;">2.每个账号只能注册一张人脸图像，否则后者会将前者覆盖导致前者失效！</text>
+</view>
+<view class="button">
+<view><button bindtap="registerFaceID">拍照注册</button></view>
+</view>
+
+<text id="copyright" style="position: absolute; bottom: 0; color: #ffba00">Copyright © 2020 余津一. All Rights Reserved.</text>
+

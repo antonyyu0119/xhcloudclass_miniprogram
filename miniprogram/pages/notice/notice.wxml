@@ -1,0 +1,20 @@
+<!--pages/notice/notice.wxml-->
+
+<view class="nav">{{title}}</view>
+
+<view class="textarea_container">
+  <textarea class="textarea" value="{{text}}" placeholder="仅限通知内容：作业、考勤、点名。(请认真审查用词！)" placeholder-style="color:#999;" cursor-spacing="40px;" maxlength="200" bindinput="onInput" disabled="{{isSend}}">
+    <view class="readed">阅读：{{readed}}</view>
+  </textarea>
+</view>
+
+<view wx:if="{{isShow}}" class="sendTo">
+<view class="who">发送给谁：</view>
+<view wx:if="{{!isSend}}" class="choice">
+<navigator><view bindtap="onChoose" data-index="0" class="{{index == 0 ?'on' :''}}">全班学生<image src="../../images/xuanzhong.png"></image></view></navigator>
+<navigator><view bindtap="onChoose" data-index="1" class="{{index == 1 ?'on' :''}}">从学生列表中选择<image src="../../images/xuanzhong.png"></image><text>{{chooseNum}}</text></view></navigator>
+</view>
+<view wx:else class="target" style="color: #ffba00" bindtap="{{ target == '全体学生' || target == '' ?'' :'getTarget'}}" >{{target}} >></view>
+</view>
+
+<van-button wx:if="{{isShow}}" round disabled="{{isSend}}" type="this" bind:click="onClick">{{isSend ?'已发送' :'发送'}}</van-button>

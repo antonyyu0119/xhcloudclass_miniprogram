@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-action-sheet": "vant-weapp/action-sheet/index",
+    "van-notice-bar": "vant-weapp/notice-bar/index",
+    "van-popup": "vant-weapp/popup/index",
+    "speechroom": "../../components/speechroom/speechroom"
+  },
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "课堂活动"
+}

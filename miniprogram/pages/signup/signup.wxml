@@ -1,0 +1,53 @@
+<!--pages/signup/signup.wxml-->
+<van-cell-group>
+  <view class="line">用户名</view>
+  <van-field
+    value="{{ username }}"
+    placeholder="请输入用户名(建议手机号)"
+    border="{{ false }}"
+    bind:change="onChange_username"
+  />
+  <view class="line">密码</view>
+  <van-field
+    value="{{ password }}"
+    placeholder="请输入密码"
+    type="password"
+    border="{{ false }}"
+    error-message="{{errorMessage1}}"
+    bind:change="onChange_password"
+    bind:blur="onCheck"
+  />
+  <view class="line">确认密码</view>
+  <van-field
+    value="{{ _password }}"
+    placeholder="请再次输入密码"
+    type="password"
+    border="{{ false }}"
+    error-message="{{errorMessage2}}"
+    bind:change="onChange__password"
+    bind:blur="onRecheck"
+  />
+  <view class="line">姓名</view>
+  <van-field
+    value="{{ name }}"
+    placeholder="请输入真实姓名"
+    border="{{ false }}"
+    bind:change="onChange_name"
+  />
+  <view class="line">院校</view>
+  <van-field
+    value="{{ school }}"
+    placeholder="请输入学校名称"
+    border="{{ false }}"
+    bind:change="onChange_school"
+  />
+  <view class="line">学院</view>
+  <van-field
+    value="{{ department }}"
+    placeholder="请输入学院全称"
+    border="{{ false }}"
+    bind:change="onChange_department"
+  />
+</van-cell-group>
+<van-button round disabled="{{isDisabled}}" type="this"  bindtap="onAlert" bind:click="onClick"><text>注册</text></van-button>
+<view class="footer"></view>

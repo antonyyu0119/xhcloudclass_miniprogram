@@ -1,0 +1,83 @@
+<!--pages/studentInfo/studentInfo.wxml-->
+<progress wx:if="{{loading}}" percent="{{percent}}" duration="10" stroke-width="2" active-mode="forwards" active />
+
+<view wx:if="{{viewShow}}">
+
+
+  <view wx:if="{{action=='onChoose'}}" class="nav">
+    <view bindtap="chooseAll" style="left: 15rpx;">{{chooseAll}}</view>
+    <button bindtap="done" disabled="{{disabled}}">完成{{chooseNum > 0 ?' '+ chooseNum :''}}</button>
+  </view>
+
+  <view class="search">
+    <view class="search_area {{isShow ?'show' :''}}" bindtap="onSearch">
+      <view class="search_btn">
+        <view class="image {{isShow ?'show' :''}}">
+          <image style="width: 40rpx;height: 40rpx; display: block" src="../../images/search.png"></image>
+        </view>
+        <input type="text" name="info" id="info" placeholder="搜索" disabled="{{!isShow}}" focus="{{focus}}"
+          bindinput="onInput" />
+      </view>
+    </view>
+    <view class="cancel {{isShow ?'show' :''}}" bindtap="cancel">取消</view>
+  </view>
+
+  <view wx:if="{{!isShow}}">
+    <view wx:if="{{studentList.length == 0}}" id="hint">还没有学生在你的班级哦~</view>
+    <view id="studentList" wx:for="{{studentList}}" wx:key="index"
+      bindtap="{{action=='onChoose' ?'onChoose' :(action == 'onChat' ?'onChat' :'moreInfo')}}"
+      data-openid="{{item.openid}}" data-sname="{{item.sname}}" data-useravatarurl="{{item.userAvatarUrl}}"
+      data-index="{{index}}" data-choose="{{item.choose}}">
+
+      <view class="content">
+        <view class="studentInfo">
+          <image class="choose" style="{{action=='onChoose' ?'display: block' :''}}"
+            src="../../images/{{item.choose == 'chosen' ?'xuanzhong' :'choose'}}.png"></image>
+          <image class="userAvatarUrl" src="{{item.userAvatarUrl}}"></image>
+          <view class="info">
+            <text style="color: #ffba00;">{{item.sname}}</text>
+            <text style="font-size: 25rpx; color: #666;">{{item.sno}}</text>
+          </view>
+        </view>
+        <view class="moreInfo">
+          <image src="../../images/youjiantou2.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{isShow}}">
+    <view wx:if="{{searchList.length == 0}}" class="search_hint">
+      <view class="title">通过以下内容搜索:</view>
+      <view class="content">
+        <view class="name">姓名</view>
+        <view class="sno">学号</view>
+      </view>
+    </view>
+
+    <view wx:if="{{searchList.length > 0}}">
+      <view id="studentList" wx:for="{{searchList}}" wx:key="index"
+        bindtap="{{action=='onChoose' ?'onChoose' :(action == 'onChat' ?'onChat' :'moreInfo')}}"
+        data-openid="{{item.openid}}" data-sname="{{item.sname}}" data-useravatarurl="{{item.userAvatarUrl}}"
+        data-_index="{{item._index}}" data-flag="{{index}}" data-choose="{{item.choose}}">
+
+        <view class="content">
+          <view class="studentInfo">
+            <image class="choose" style="{{action=='onChoose' ?'display: block' :''}}"
+              src="../../images/{{item.choose == 'chosen' ?'xuanzhong' :'choose'}}.png"></image>
+            <image class="userAvatarUrl" src="{{item.userAvatarUrl}}"></image>
+            <view class="info">
+              <text style="color: #ffba00;">{{item.sname}}</text>
+              <text style="font-size: 25rpx; color: #666;">{{item.sno}}</text>
+            </view>
+          </view>
+          <view class="moreInfo">
+            <image src="../../images/youjiantou2.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

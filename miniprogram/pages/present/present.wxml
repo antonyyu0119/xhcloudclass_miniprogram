@@ -1,0 +1,10 @@
+<!--pages/present/present.wxml-->
+<view class="list" wx:for="{{signinList}}" wx:key="{{index}}" bindtap="showMore" data-_id="{{item._id}}">
+<view>
+<view style="color: #ffba00; font-size: 30rpx; line-height: 40rpx;">{{item.lessonName}} {{item.className ?item.className :''}}</view>
+</view>
+<view style="text-align: right;">
+<view style="line-height: 40rpx;">{{item.date == today ?'今天' :(item.date == yesterday ?'昨天' :item.date)}} {{item.time ?item.time :''}}</view>
+<view style="line-height: 75rpx;">已到：{{item.students.length}}人</view>
+</view>
+</view>

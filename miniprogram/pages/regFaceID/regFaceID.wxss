@@ -1,0 +1,36 @@
+/* pages/regFaceID/regFaceID.wxss */
+page{ background: #000;}
+
+@keyframes guide{
+  0%{ color: #fff;}
+  100%{ color: #ffba00;}
+}
+
+@keyframes borderRotate{
+  0% { transform: rotate(0deg);}
+  50% { transform: rotate(180deg);}
+  100% { transform: rotate(360deg);}
+}
+
+@keyframes borderBlink{
+  /*0% { transform: rotate(-45deg);}
+  50% { transform: rotate(0deg);}
+  100% { transform: rotate(45deg);}*/
+  0% { border: none; top: 200rpx;}
+  100% { border: 20rpx double #ffba00; top: 180rpx;}
+}
+
+.guide{ display: block; width: 100%; height: 50rpx; top: 120rpx; padding: 0 100rpx; text-align: center; line-height: 50rpx; font-size: 33rpx; color: #fff; box-sizing: border-box; animation: guide 700ms linear infinite alternate;}
+
+camera{ z-index: 998;}
+image{ z-index: 999;}
+.photo{ display: block; overflow: hidden; position: absolute; width: 500rpx; height: 500rpx; top: 200rpx; left: 50%; transform: translateX(-50%); border-radius: 50%;}
+.face_container::after{content: ""; width: 500rpx; height: 500rpx; position: absolute; top: 180rpx; left: 106rpx; z-index: 1000;}
+.face_container.on::after{ top: 180rpx; left: 50%; border-radius: 50%; transform: translateX(-50%); border: 20rpx double #ffba00; animation: borderBlink 500ms infinite alternate;}
+.face_container.off::after{ border: 20rpx dotted #ffba00; border-radius: 50%;  animation: borderRotate 6s linear infinite;}
+
+.hint{ height: 200rpx; width: 100%; padding: 0 100rpx; box-sizing: border-box; position: absolute; top: 800rpx;}
+.hint text{ display: block; height: 40rpx; width: 100%; line-height: 40rpx; color: #999; font-size: 25rpx;}
+.button{ width: 100%; height: 100rpx; display: flex; box-sizing: border-box; position: absolute; bottom: 100rpx;}
+.button view{ flex: 1; padding: 0 150rpx;}
+button{ background: #ffba00; color: #fff;}
